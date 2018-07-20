@@ -7,9 +7,10 @@ class StringDemo
     {
 	try
 	{
-        StringOperation new_obj=new StringOperation();
+            StringOperation new_obj=new StringOperation();
 	    Scanner in=new Scanner(System.in);
 	    int choice;
+
 	    System.out.println("Choose an operation to perform:");
 	    do
 	    {
@@ -22,41 +23,46 @@ class StringDemo
 	        switch(choice)
 	        {
 				case 1: System.out.println("Enter a string:");
-					    String s = in.next();
-					    s += in.nextLine();
-					    System.out.println("Length of first string:" + new_obj.getLength(s));
-					    break;
+				 	String s = in.next();
+					s += in.nextLine();
+					System.out.println("Length of first string:" + new_obj.getLength(s));
+					 break;
+
 				case 2: System.out.println("Enter a string:");
-					    s = in.next();
-					    s += in.nextLine();
-					    System.out.println("Reverse of first string:" + new_obj.reverseString(s));
-					    break;
+					s = in.next();
+					s += in.nextLine();
+					System.out.println("Reverse of first string:" + new_obj.reverseString(s));
+					break;
+
 				case 3: System.out.println("Enter a string:");
-					    s = in.next();
-					    s += in.nextLine();
-					    System.out.println("String with changed case of letters:" + new_obj.replaceCase(s));
-					    break;
+					s = in.next();
+					s += in.nextLine();
+					System.out.println("String with changed case of letters:" + new_obj.replaceCase(s));
+					break;
+
 				case 4: System.out.println("Enter first string:");
-					    s = in.next();
-					    s += in.nextLine();
-					    System.out.println("Enter second string:");
-					    String str = in.next();
-					    str += in.nextLine();
-					    System.out.println("Result of comparision:" + new_obj.compareStrings(s,str));
-					    break;
+					s = in.next();
+					s += in.nextLine();
+					System.out.println("Enter second string:");
+					String str = in.next();
+					str += in.nextLine();
+					System.out.println("Result of comparision:" + new_obj.compareStrings(s,str));
+					break;
+
 				case 5: System.out.println("Enter a string:");
-					    s = in.next();
-					    s += in.nextLine();
-					    System.out.println("Last largest word:" + new_obj.largestWord(s));
-					    break;
-			    default:System.out.println("Wrong choice!Try again");	
+					s = in.next();
+					s += in.nextLine();
+					System.out.println("Last largest word:" + new_obj.largestWord(s));
+					break;
+
+			        default: System.out.println("Wrong choice!Try again");	
 			}
 			System.out.println("Do you want to continue??:Type 1 for yes and 0 for NoList");
 			choice=in.nextInt();
-			
+
 		}while(choice!=0);
 	}
-	catch(ArithmeticException e) 
+	catch(ArithmeticException e)
 	{
 		System.out.println("Error:" + e.getMessage());
 	}
