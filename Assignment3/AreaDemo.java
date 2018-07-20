@@ -7,9 +7,10 @@ class AreaDemo
 	{
 		Area area_obj = new Area();
 		Scanner sc = new Scanner(System.in);
+		int choice;
+
 		try
 		{
-		    int choice;
 			System.out.println("Choose an operation to perform:");
 			do
 			{
@@ -26,20 +27,24 @@ class AreaDemo
 						double height = sc.nextDouble();
 						System.out.println("Area:" + area_obj.areaOfRectangle(width, height));
 						break;
+
 					case 2: System.out.println("Enter side:");
 						double side = sc.nextDouble();
 						System.out.println("Area:" + area_obj.areaOfSquare(side));
 						break;
+
 					case 3: System.out.println("Enter radius:");
 						double radius = sc.nextDouble();
 						System.out.println("Area:" + area_obj.areaOfCircle(radius));
 						break;
-					case 4:System.out.println("Enter base:");
+
+					case 4: System.out.println("Enter base:");
 						double base = sc.nextDouble();
 						System.out.println("Enter height:");
 						height = sc.nextDouble();
 						System.out.println("Area:" + area_obj.areaOfRectangle(base, height));
 						break;
+
 					default:System.out.println("Wrong choice!Try again");
 				}
 				System.out.println("Do you want to continue??:Type 1 for yes and 0 for NoList");
