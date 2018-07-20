@@ -56,7 +56,7 @@ class StringDemo
 			
 		}while(choice!=0);
 	}
-	catch(ArithmeticException e)
+	catch(ArithmeticException e) 
 	{
 		System.out.println("Error:" + e.getMessage());
 	}
