@@ -92,7 +92,7 @@ class StringOperation
      * @param str, string to search for largest word, requires that it should be not null and can be case-sensitive
      * @return largest requires to be the largest from the last if 2 have equal length
      */
-        public String largestWord( String str ) throws NullPointerException
+    public String largestWord( String str ) throws NullPointerException
     {
         String max_string = "";
         int max_length = 0;
