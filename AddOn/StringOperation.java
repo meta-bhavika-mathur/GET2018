@@ -27,7 +27,7 @@ class StringOperation
         int len;
         String reverse = "";
         len = getLength(original);
-        for(int i=len-1 ; i>= 0 ; i--)
+        for(int i = len-1 ; i >= 0 ; i--)
         {
             reverse += original.charAt(i);
         }
