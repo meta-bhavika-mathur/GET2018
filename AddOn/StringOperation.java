@@ -1,14 +1,18 @@
-package assignment2;
+package Assignment2;
 
 class StringOperation
 {
+	final String ERROR_MESSAGE = "Null string found!";
+    
     /**
      * Find a length of a string.
      * @param string, value to find length requires that it should be not null and can be case-sensitive
      * @return integer named 'length' containing length of input string
      */
-    public int getLength(String string)
+    public int getLength(String string)throws NullPointerException
     {
+    	if (string.length() < 0)
+    		throw new NullPointerException(ERROR_MESSAGE);
         int i = 0;
         for(char ch:string.toCharArray())
         {   
@@ -22,17 +26,20 @@ class StringOperation
      * @param original, value to reverse requires that it should be not null and can be case-sensitive
      * @return integer 'reverse' containing reversed string of input string
      */
-    public String reverseString(String original)
-    {
-        int len;
-        String reverse = "";
-        len = getLength(original);
-        for(int i = len-1 ; i >= 0 ; i--)
-        {
+     public String reverseString(String original) throws NullPointerException
+     {
+    	if (original.length() < 0)
+    		throw new NullPointerException(ERROR_MESSAGE);
+    	
+    	 int len;
+         String reverse = "";
+         len = getLength(original);
+         
+         for(int i = len-1 ; i >= 0 ; i--)
             reverse += original.charAt(i);
-        }
-        return reverse;
-    }
+         
+         return reverse; 
+     }
 
     /**
      * Compare 2 strings.
@@ -40,9 +47,12 @@ class StringOperation
      * @param second_string, second string to compare requires that it should be not null and can be case-sensitive
      * @return result, true if first_string = second_string otherwise false
      */
-    public int compareStrings(String first_string , String second_string)
+    public int compareStrings(String first_string , String second_string) throws NullPointerException
     {
-        int result = 1;
+    	if (first_string.length() < 0 || second_string.length() < 0)
+    		throw new NullPointerException(ERROR_MESSAGE);
+    	
+    	int result = 1;
         int length_of_first = getLength(first_string);
         int length_of_second = getLength(second_string);
         
@@ -52,9 +62,7 @@ class StringOperation
             while( i <= length_of_first - 1)
             {
                 if( first_string.charAt(i) == second_string.charAt(i))
-                {
                     i++;
-                }
                 else
                 {
                     result = 0;
@@ -72,8 +80,11 @@ class StringOperation
      * @param str, value to replace case requires that it should be not null and can be case-sensitive
      * @return new_str string with cases replaced
      */
-    public String replaceCase(String str)
+    public String replaceCase(String str) throws NullPointerException
     {
+    	if (str.length() < 0)
+    		throw new NullPointerException(ERROR_MESSAGE);
+    	
         String new_str = "";
         for(char ch:str.toCharArray())
         {   
@@ -94,12 +105,14 @@ class StringOperation
      */
     public String largestWord( String str ) throws NullPointerException
     {
+    	if (str.length() < 0)
+    		throw new NullPointerException(ERROR_MESSAGE);
+    	
         String max_string = "";
         int max_length = 0;
-        int count = 0;
-        int lwr = 0;
-        int upr = 0;
-        int flag = 0;
+        int count, lwr, upr, flag;
+        count = lwr = upr = flag = 0;
+   
         for(int i = 0 ; i <= getLength(str) - 1; i++)
         {
             System.out.println("length" + getLength(str));
@@ -118,15 +131,14 @@ class StringOperation
                 flag = 1;
                 count++;
                 if(count > max_length)
-                        {
+                {
                     lwr = i;
                 }
-            }
-            else
-            {
+             }
+             else
                 count++;
-            }
         }
+        
         for(int j = lwr; j <= upr; j++)
         {
             System.out.println("j:" + j);
