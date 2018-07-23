@@ -2,7 +2,7 @@ package assignment4;
 
 public class Search {
     
-    final String error_message = "Not Found!";
+    final String ERROR_MESSAGE = "Element Not Found!";
     
     /**
      * Linear search searches for an element in an array by comparing each element of the array for the target value 
@@ -15,7 +15,7 @@ public class Search {
     {
         int[] b;
         if( a.length < 1)
-            throw new AssertionError(error_message);
+            throw new AssertionError(ERROR_MESSAGE);
         
         if(a[a.length - 1] == search_value)
         {
@@ -39,7 +39,7 @@ public class Search {
     public int binarySearch(int array[], int lwr, int upr, int search_value) throws NullPointerException
     {
         if( array.length < 1)
-            throw new NullPointerException(error_message);
+            throw new NullPointerException(ERROR_MESSAGE);
         if (lwr <= upr)
         {
             int mid = ( lwr + upr ) /  2;
