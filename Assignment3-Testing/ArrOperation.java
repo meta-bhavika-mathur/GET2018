@@ -1,8 +1,8 @@
 package assignment3;
 
-class ArrOperation
+class ArrayOperation
 {
-    final String error_message = "Array is empty!";
+    final String ERROR_MESSAGE = "Array is empty!";
     
     /**
     * To count number of clumps in an array, which are a series of 2 or more adjacent elements of the same value.
@@ -13,7 +13,7 @@ class ArrOperation
     public int countClumps(int array[]) throws AssertionError
     {
         if( array.length < 1)
-            throw new AssertionError(error_message);
+            throw new AssertionError(ERROR_MESSAGE);
         
         int count = 0;
         int i = 0;
@@ -29,9 +29,7 @@ class ArrOperation
                 i++;
             } 
             else
-            {
                 i++;
-            }
          }
          return count;
      }
@@ -45,7 +43,7 @@ class ArrOperation
     public int maxMirror(int array[]) throws AssertionError
     {
         if( array.length < 1)
-            throw new AssertionError(error_message);
+            throw new AssertionError(ERROR_MESSAGE);
         
         int current_size,start,end;
         int max_size = 0;
@@ -80,7 +78,7 @@ class ArrOperation
     public int splitArray(int array[]) throws AssertionError
     {
         if( array.length < 1)
-            throw new AssertionError(error_message);
+            throw new AssertionError(ERROR_MESSAGE);
         
         int total_sum = 0;
         
@@ -119,39 +117,73 @@ class ArrOperation
     */
     public int[] fixXY(int[] array, int x, int y) throws AssertionError
     {
-        if( array.length < 1)
-            throw new AssertionError(error_message);
+        int[] inputArray = array;
         
-        int[] a = array;
-        int i = 0;
-        int last_pos = 0;
-        int flag,j,last_i = 0;
-    
-        while(i < a.length)
+        if(inputArray.length == 0)
+            throw new AssertionError(ERROR_MESSAGE);
+        
+        if(inputArray[inputArray.length - 1] == x)
+            throw new AssertionError(x + "cannot be at last");
+        
+        if(!checkingEqualOccurrence(inputArray, x, y))
+            throw new AssertionError("occurrences of " + x + " and " + y +" are not equal.");
+
+        int indexOfY = -1;
+        for(int i = 0; i < inputArray.length; i++)
         {
-            if(a[i] == x)
+            if(inputArray[ i ] == y)
             {
-                j = last_pos;
-                flag = 1;
-                while ((j < a.length) && (flag == 1))
-                {
-                    if((a[j] == y) && (j != i+1))
-                    {
-                        int temp = a[j];
-                        a[j] = a[i +1];
-                        a[i + 1] = temp;
-                        
-                        last_i = i + 1;
-                        last_pos = j + 1;
-                        i = i + 2;
-                        flag = 0;
-                    }
-                    else
-                        j++;
-                }
+                indexOfY = i;
+                break;
             }
-            i++;
         }
-        return a;
+        for(int i = 0; i< inputArray.length - 1; i++)
+        {
+            if(inputArray[ i ] == x)
+            {
+                i++;
+                if(inputArray[ i ] == x)
+                {
+                    throw new AssertionError("2 " + x + " cannot be adjacent.");
+                }
+                int temporaryIndexOfY = indexOfY;
+                for(int j = indexOfY + 1; j < inputArray.length; j++)
+                {
+                    if(inputArray[j] == y)
+                    {
+                        indexOfY = j;
+                        break;
+                    }
+                }
+                inputArray[temporaryIndexOfY] = inputArray[i];
+                inputArray[i] = y;
+            }
+        }
+        return inputArray;
+    }
+    
+    /**
+     * Checks if 2 elements have equal number of occurrences in an array
+     * @param inputArray, list of numbers
+     * @param firstElement, first number
+     * @param secondElement, second number
+     * @return true if occurrence of both elements are equal, otherwise false
+     */
+    public static boolean checkingEqualOccurrence(int[] inputArray, 
+            int firstElement, int secondElement)
+    {
+        int occurrenceOfFirstElement = 0, occurrenceOfSecondElement = 0;
+        for(int i = 0; i < inputArray.length; i++)
+        {
+            if(inputArray[i] == firstElement)
+                occurrenceOfFirstElement += 1;
+            
+            if(inputArray[i] == secondElement)
+                occurrenceOfSecondElement += 1;
+        }
+        if (occurrenceOfFirstElement == occurrenceOfSecondElement)
+            return true;
+        
+        return false;
     }
 }
