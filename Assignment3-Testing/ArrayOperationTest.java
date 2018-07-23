@@ -4,55 +4,46 @@ import static org.junit.Assert.*;
 
 public class ArrayOperationTest {
 
-    ArrOperation arrayOperation = new ArrOperation();
+    ArrayOperation arrayOperation = new ArrayOperation();
     
-    /**
-     * Test cases for split array problem
-     */
+     // Test cases for split array problem
    
     // Positive case for splitArray if array can be split
 	@org.junit.Test
 	public void splitArrayTest1() {
-		
-		int splitIndex = arrayOperation.splitArray(new int[]{1, 1, 1, 2, 1});
-		assertEquals(3, splitIndex);
+	    int splitIndex = arrayOperation.splitArray(new int[]{1, 1, 1, 2, 1});
+	    assertEquals(3, splitIndex);
 	}
 	
 	@org.junit.Test
 	public void splitArrayTest2() {
-        
 	    int splitIndex = arrayOperation.splitArray(new int[]{10, 10});
 	    assertEquals(1, splitIndex);
 	}
-	
-	
-   // Test case for splitArray if array cannot be split
+
+    // Test case for splitArray if array cannot be split
 	@org.junit.Test
 	public void splitArrayTest3() {
-		
-		int splitIndex = arrayOperation.splitArray(new int[]{2, 1, 1, 2, 1});
-		assertEquals(-1, splitIndex);
+	    int splitIndex = arrayOperation.splitArray(new int[]{2, 1, 1, 2, 1});
+	    assertEquals(-1, splitIndex);
 	}
 	
 	@org.junit.Test
-    public void splitArrayTest4() {
-        
-        int splitIndex = arrayOperation.splitArray(new int[]{2, 3, 5, 2, 1});
-        assertEquals(-1, splitIndex);
-    }
+        public void splitArrayTest4() {
+            int splitIndex = arrayOperation.splitArray(new int[]{2, 3, 5, 2, 1});
+            assertEquals(-1, splitIndex);
+    	}
 	
 	//Test case for splitArray if array is empty
 	@org.junit.Test(expected = AssertionError.class)
 	public void splitArrayTest5() {
-		
-		int splitIndex = arrayOperation.splitArray(new int[]{});
-		assertEquals(1, splitIndex);
+	    int splitIndex = arrayOperation.splitArray(new int[]{});
+	    assertEquals(1, splitIndex);
 	}
     
-    /**
-     * Test cases for countClumps 
-     */
-    
+
+    // Test cases for countClumps 
+      
     //Positive test cases for countClumps
     @org.junit.Test
     public void countClumpsTest1() {   
@@ -80,9 +71,7 @@ public class ArrayOperationTest {
     }
     
     
-    /**
-     * Test case for to find Largest Mirror Section in an array
-     */
+    // Test case for to find Largest Mirror Section in an array
     
     //Positive test cases
     @org.junit.Test
@@ -97,7 +86,7 @@ public class ArrayOperationTest {
         assertEquals(9, max);
     }
     
-    //Negative test cases
+    // Negative test cases
     @org.junit.Test
     public void maxMirrorTest3() {
         int max = arrayOperation.maxMirror(new int[]{7, 12, 4, 8, 7, 5, 1});
@@ -118,26 +107,25 @@ public class ArrayOperationTest {
         assertEquals(0 , max);
     }
     
-    /**
-     * Test cases for fix XY problem
-     */
+    // Test cases for fix XY problem
     
     // Positive test cases for fixXY problem
     @org.junit.Test
     public void fixXYTest1() {
         
-        int[] fixXY = arrayOperation.fixXY(new int[]{5, 4, 9, 4, 9, 5}, 4, 5);
-        assertArrayEquals(new int[]{9, 4, 5, 4, 5, 9}, fixXY);
+    	int[] inputArray = {5, 4, 9, 4, 9, 5};
+	    assertArrayEquals(new int[]{9, 4, 5, 4, 5, 9}, arrayOperation.fixXY(inputArray, 4, 5));
     }
     
     @org.junit.Test
     public void fixXYTest2() {
         
-        int[] fixXY = arrayOperation.fixXY(new int[]{5, 4, 9, 4, 9, 5}, 4, 5);
-        assertArrayEquals(new int[]{9, 4, 5, 4, 5, 9}, fixXY);
+    	int[] inputArray = {1, 3, 1, 2};
+        int[] expectedArray = {1, 3, 2, 1};
+        assertArrayEquals(expectedArray, arrayOperation.fixXY(inputArray, 3, 2));
     }
     
-   // Negative test cases for fixXY problem
+    // Negative test cases for fixXY problem
     @org.junit.Test
     public void fixXYTest3() {
         
@@ -166,20 +154,17 @@ public class ArrayOperationTest {
         int[] fixXY = arrayOperation.fixXY(new int[]{1, 4, 4, 5, 3, 5, 1}, 4, 5);
     }
     
-   // Test case for fixXY if array cannot be rearranged when X is at last position
+    // Test case for fixXY if array cannot be rearranged when X is at last position
     @org.junit.Test(expected = AssertionError.class)
     public void fixXYTest7() {
    
         int[] fixXY = arrayOperation.fixXY(new int[]{1, 5, 1, 4}, 4, 5);
     }
     
- 
     // Test case for fixXY if array cannot be rearranged because of unequal X & Y    
     @org.junit.Test(expected = AssertionError.class)
     public void fixXYTest8() {
    
         int[] fixXY = arrayOperation.fixXY(new int[]{1, 4, 1, 5, 3, 4, 1}, 4, 5);
     }
-    
-
 }
