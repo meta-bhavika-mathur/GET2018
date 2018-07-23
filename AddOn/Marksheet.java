@@ -2,7 +2,7 @@ package assignment2;
 
 class Marksheet
 {
-    final String ERROR_MESSAGE = "Number of students should be greater than 0";
+    final String ERROR_MESSAGE = "Number of students must be greater than 0";
     int no_of_students;
     double[] grades;
 
