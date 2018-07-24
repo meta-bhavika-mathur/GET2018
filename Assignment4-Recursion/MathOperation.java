@@ -10,7 +10,7 @@ public class MathOperation {
      * @param first, larger number, requires that it should be positive.
      * @param second, smaller number, requires that it should be positive.
      */
-    int highestCommonFactor(int first, int second) throws AssertionError
+    int findHighestCommonFactor(int first, int second) throws AssertionError
     {
         if (first < second)
             throw new AssertionError(ERROR_MESSAGE1);
@@ -30,7 +30,7 @@ public class MathOperation {
      * @param first_number, requires that it should be positive.
      * @param second_number, requires that it should be positive.
      */
-    int leastCommonMultiple(int first_number, int second_number) throws AssertionError
+    int findLeastCommonMultiple(int first_number, int second_number) throws AssertionError
     {
         if(first_number < second_number)
             throw new AssertionError(ERROR_MESSAGE1);
