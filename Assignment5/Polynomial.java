@@ -1,94 +1,130 @@
 package assignment5;
 
-public final class Polynomial {
-
-    int[] poly_array;
+public final class Polynomial
+{
+    private int[][] polynomial_array;
     
-    Polynomial(int size_of_poly)
+    /** Utility method to convert 1D Array into 2D Array, whose first column represent coefficient and 
+     	their powers.
+     * @param one_dimensional_array, 1D Array with coefficient stored at index equal to exponent.
+     * @return 2D array with coefficient and exponent stored, requires that coefficient must not be zero.
+     */
+    private int[][] convertIntoTwoDimensional(int[] one_dimensional_array)
     {
-        poly_array = new int[size_of_poly];
+        int polynomial_size = 0;
+        
+        for( int i = 0; i < one_dimensional_array.length; i++ )
+        {
+            if( one_dimensional_array[i] != 0 )
+            	polynomial_size++;
+        }
+        
+        int[][] new_array = new int[polynomial_size][2];
+        int count = 0;
+        
+        for(int i=0; i < one_dimensional_array.length; i++)
+        {
+            if(one_dimensional_array[i] != 0)
+            {
+            	new_array[count][0] = one_dimensional_array[i];
+            	new_array[count][1] = i;
+            	count++;
+            }
+        }
+        return new_array;
     }
+    
+   
+    // Parameterized constructor of  class Polynomial.
     Polynomial(int[] array)
     {
-        poly_array = array;
+        polynomial_array = convertIntoTwoDimensional(array); 
     }
     
-    private int getPolynomialSize()
+    /**
+     * To get 2D array of polynomial with stored coefficients and their powers
+     * @return polynomial in the form of 2D array.
+     */
+    int[][] getPolynomialArray()
     {
-        return poly_array.length;
+        return polynomial_array;
     }
     
-    private int getValue(int index)
+    /**
+     * To evaluate the polynomial expression where value of variable is provided as input.
+     * @param variable, value for variable of polynomial to evaluate the polynomial expression.
+     * @return result, the result obtained after evaluating polynomial expression for given variable.
+     */
+    float evaluatePolynomial(int variable)
     {
-        return poly_array[ index ];
-    }
-    public float evaluatePolynomial(float variable)
-    {
-        int coefficient_value;
-        float product, result;
-        result = 0;
+        float result = 0;
         
-        int i = 0;
-        while(i < poly_array.length)
+        for(int i = 0; i < polynomial_array.length; i++)
+        	result += polynomial_array[i][0] * (Math.pow(variable, polynomial_array[i][1]));           
+    
+        return result;
+    }
+    
+    /**
+     * To return degree of polynomial i.e the highest value of exponent in the expression.
+     * @return highest power in the polynomial.
+     */
+    int getPolynomialDegree() throws IndexOutOfBoundsException
+    {
+        if( polynomial_array.length == 0)
+            throw new IndexOutOfBoundsException();
+        
+        return polynomial_array[ polynomial_array.length - 1  ][ 1 ];
+    }
+    
+    /**
+     * To add two polynomial expressions.
+     * @param first, first polynomial as operand for addition operation.
+     * @param second, first polynomial as operand for addition operation
+     * @return, a polynomial expressions representing sum of given 2 polynomial expressions.
+     */
+    Polynomial addPolynomial(Polynomial first, Polynomial second)
+    {
+        int[] sum;
+        int max;
+        
+        // Find polynomial with highest degree
+        if( first.getPolynomialDegree() >= second.getPolynomialDegree() )
+        	max = first.getPolynomialDegree();	
+        else
+        	max = first.getPolynomialDegree();
+        
+        sum = new int[ max + 1 ];
+    	
+        for(int i = 0; i < polynomial_array.length; i++)
         {
-            coefficient_value = poly_array[ i ];
-            product = 1;
-            
-            for(int j = 1; j <= poly_array[ i + 1]; j++)
-                product *= variable;
-            
-            result = result + ( coefficient_value * product );
-            
-          i += 2;           
+        	sum[ polynomial_array[i][1] ] = polynomial_array[i][0];
         }
-        return result;    
-    }
-    
-    public int findDegreeOfPolynomial()
-    {
-        int i = 1;
-        int degree = poly_array[ i ];
-        
-        while (i < poly_array.length)
+   
+        for(int i=0; i < second.polynomial_array.length; i++)
         {
-            if(poly_array[ i ] > degree)
-                degree = poly_array[ i ];
-            i += 2;
+        	sum[ second.polynomial_array[i][1] ] += second.polynomial_array[i][0];
         }
-        return degree;
+        return new Polynomial(sum);
     }
     
-    private int[][] convertToMatrix(Polynomial poly)
+    /**
+     * To multiply two polynomial expressions.
+     * @param first, first polynomial as operand for multiplication.
+     * @param second, second polynomial as operand for multiplication.
+     * @return result of multiplication of two polynomial expressions
+     */
+    Polynomial multiplyPolynomial(Polynomial first, Polynomial second)
     {
-        int size = poly.getPolynomialSize() / 2 ;
-        int[][] p = new int[size][2];
-        
-        int i = 0;
-        while( i< poly.getPolynomialSize() )
+        int[] product_array = new int[ first.getPolynomialDegree() + second.getPolynomialDegree() + 1 ];
+        for(int i = 0; i < first.getPolynomialDegree(); i++)
         {
-            if( i % 2 == 0)
-                p[i][0] = poly.getValue(i);
-            else
-                p[i][1] = poly.getValue(i);
-            
-            i ++;
+            for(int j=0; j < second.getPolynomialDegree(); j++)
+            {
+            	product_array[first.polynomial_array[i][1] + second.polynomial_array[j][1]] += 
+            			first.polynomial_array[i][0] * second.polynomial_array[j][0];
+            }
         }
-        
-        return p;
-    }
-    
-    public Polynomial addPolynomial(Polynomial first, Polynomial second)
-    {
-        int[][] first_poly = first.convertToMatrix(first);
-        int[][] second_poly = second.convertToMatrix(second);
-        
-        int size_of_max = (first.getPolynomialSize() > second.getPolynomialSize()) ? first.getPolynomialSize() : second.getPolynomialSize();
-        int size_of_min = (first.getPolynomialSize() < second.getPolynomialSize()) ? first.getPolynomialSize() : second.getPolynomialSize();
-        int[][] sum_of_poly = new int[size_of_max + size_of_min][2];
-        
-        
-        
-        
+        return  new Polynomial(product_array);
     }
 }
-
