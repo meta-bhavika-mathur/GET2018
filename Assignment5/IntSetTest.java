@@ -4,9 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class IntSetTest {
-
  
-    
     int[] test_array3 = new int[]{10, 4, 11, 5, 6};
     int[] test_array4 = new int[]{4, 5, 6, 10, 11};
     int[] test_array5 = new int[]{1,8,10,11};
@@ -16,18 +14,8 @@ public class IntSetTest {
     int[] test_array2 = new int[]{5, 10};
     IntSet first_set = new IntSet(test_array1);
     IntSet second_set = new IntSet(test_array2);
-
-    
-    
-    
     IntSet first_set3 = new IntSet(test_array3);
     IntSet first_set4 = new IntSet(50);
-    
-    
-    
-   // IntSet second_set = new IntSet(test_array2);
-    
-    
     
     /**
      * Positive test cases for isSubset method
@@ -141,8 +129,6 @@ public class IntSetTest {
         
         assertEquals(a, b);
     }
-    
-    
     
     @Test
     public void testSort() {
