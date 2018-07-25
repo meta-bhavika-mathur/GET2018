@@ -153,7 +153,9 @@ public final class IntSet {
             if( integer_array.length < s.getSize())
                 throw new AssertionError("ERROR_MESSAGE2");
             
-            int i, j, flag, count;
+            int i;
+            int j;
+            int flag, count;
             i = count = 0;
             flag = 1;
             
