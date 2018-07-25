@@ -1,8 +1,6 @@
 package assignment5;
 
 import static org.junit.Assert.*;
-import junit.framework.AssertionFailedError;
-
 import org.junit.Test;
 
 public class IntSetTest {
@@ -165,10 +163,5 @@ public class IntSetTest {
        int b[] = final_set.convertSetToArray();
        
       assertArrayEquals(a,b);
-       
-       
-     
-       
     }
-   
 }
