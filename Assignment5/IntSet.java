@@ -17,7 +17,7 @@ public final class IntSet {
         }
         
         // Constructor for initializing Integer Set
-        public IntSet(int[] array) throws NullPointerException
+        public IntSet(int[] array) throws NullPointerException, AssertionError
         {  
             // Check if array is empty
             if(array.length == 0)
@@ -26,12 +26,10 @@ public final class IntSet {
             // Check if value of set contains values outside the defined range i.e 1-1000
             for( int i = 0; i < array.length; i++)
             {
-                if(!( array[ i ] >= 1 && array[i] <= 1000))
-                {
+                if(!( array[ i ] >= 1 && array[i] <= 1000)
                     throw new AssertionError(ERROR_MESSAGE3);
-                }
             }
-            
+                   
             integer_array = array;
         }
         
@@ -254,16 +252,16 @@ public final class IntSet {
                 }
             }
             
-           int[] final_array = new int[ k ];
+            int[] final_array = new int[ k ];
            
-           //Copy union elements into final array
-           for(int x = 0; x < k; x++)
-           {
-               final_array[ x ] = array_union[ x ];
-           }
+            //Copy union elements into final array
+            for(int x = 0; x < k; x++)
+            {
+                final_array[ x ] = array_union[ x ];
+            }
           
-           IntSet union_result = new IntSet(final_array);
-           return union_result;
+            IntSet union_result = new IntSet(final_array);
+            return union_result;
         } 
         
         /**
@@ -286,10 +284,9 @@ public final class IntSet {
             }
             
             int[] complement_array = new int[ k ];
+                
             for(int j = 0; j < k; j++)
-            {
                 complement_array[j] = universal_array[ j ];
-            }
             
             IntSet complement_set = new IntSet(complement_array);
             return complement_set; 
