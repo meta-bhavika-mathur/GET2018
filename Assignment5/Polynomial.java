@@ -2,9 +2,9 @@ package assignment5;
 
 public final class Polynomial
 {
+    final String NULL_POINTER_EXCEPTION_MESSAGE = "Null pointer exception!";
+    final String OUT_OF_BOUNDS_MESSSAGE = "Array index out of bounds exception!";
     private int[][] polynomial_array;
-    final private String NULL_POINTER_EXCEPTION_MESSAGE = "Null pointer exception!";
-    final private String OUT_OF_BOUNDS_MESSSAGE = "Array index out of bounds exception!";
     
     // Parameterized constructor of  class Polynomial.
     Polynomial(int[] array) throws NullPointerException
@@ -12,7 +12,7 @@ public final class Polynomial
     	 if( array.length <= 0)
          	throw new NullPointerException(NULL_POINTER_EXCEPTION_MESSAGE);
     	 
-    	polynomial_array = convertIntoTwoDimensional(array); 
+    	 polynomial_array = convertIntoTwoDimensional(array); 
     }
     
     /**
@@ -67,13 +67,11 @@ public final class Polynomial
         {
         	sum = new int[polynomial.getPolynomialDegree() + 1];
         }
-        
         // Copying all the elements of bigger polynomial array into new polynomial array
         for(int i = 0; i < polynomial_array.length; i++)
         {
         	sum[polynomial_array[i][1]] = polynomial_array[i][0];
         }
-        
         // Performing sum
         for(int i = 0; i < polynomial.polynomial_array.length; i++)
         	sum[polynomial.polynomial_array[i][1]] += polynomial.polynomial_array[i][0];
