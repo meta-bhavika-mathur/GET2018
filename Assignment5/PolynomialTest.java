@@ -1,168 +1,154 @@
-
 package assignment5;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class PolynomialTest
 {
-    //Tests cases for evaluate()
+    // Test to evaluate polynomial when correct arguments are passed
     @Test
-    public void testEvaluate()
+    public void testEvaluatePolynomial()
     {
         int[] array = {1, 0, 4};
-        Polynomial poly = new Polynomial(array);
-        float expectedOutput = 17;
-        assertEquals(expectedOutput, poly.evaluatePolynomial(2), 0);
+        Polynomial polynomial = new Polynomial(array);
+        float expected_value = 17;
+        assertEquals(expected_value, polynomial.evaluatePolynomial(2), 0);
     }
     
+    // Test to evaluate polynomial when value of variable passed is zero.
     @Test
-    public void testEvaluateWithEmptyArray()
+    public void testEvaluatePolynomialWithZeroParameter()
     {
-        int[] inputArray = {};
-        Polynomial poly = new Polynomial(inputArray);
-        float expectedOutput = 0;
-        assertEquals(expectedOutput, poly.evaluatePolynomial(2), 0);
+        int[] array = {1, 2, 3};
+        Polynomial polynomial = new Polynomial(array);
+        float expected_value = 1;
+        assertEquals(expected_value, polynomial.evaluatePolynomial(0), 0);
     }
     
+    // Test to evaluate polynomial when empty array is referenced with evaluate polynomial
+    @Test (expected = NullPointerException.class)
+    public void testEvaluatePolynomialWithEmptyArray()
+    {
+        int[] array = {};
+        Polynomial polynomial = new Polynomial(array);
+        float expected_value = 0;
+        assertEquals(expected_value, polynomial.evaluatePolynomial(2), 0);
+    }
+    
+    // Test to find degree of polynomial with valid input
     @Test
-    public void testEvaluateWithValueEqualsZero()
+    public void testFindDegree()
     {
-        int[] inputArray = {1, 2, 3};
-        Polynomial poly = new Polynomial(inputArray);
-        float expectedOutput = 1;
-        assertEquals(expectedOutput, poly.evaluatePolynomial(0), 0);
+        int[] array = {1, 0, 4};
+        Polynomial polynomial = new Polynomial(array);
+        int expected_output = 2;
+        assertEquals(expected_output, polynomial.getPolynomialDegree());
     }
     
-  //Tests cases for degree()
-    @Test
-    public void testDegree()
-    {
-        int[] inputArray = {1, 0, 4};
-        Polynomial poly = new Polynomial(inputArray);
-        int expectedOutput = 2;
-        assertEquals(expectedOutput, poly.getPolynomialDegree());
-    }
-    
-    @Test(expected = IndexOutOfBoundsException.class)
+    // Test to find degree when empty array is referenced
+    @Test(expected = NullPointerException.class)
     public void testDegreeWithEmptyArray()
     {
-        int[] inputArray = {};
-        Polynomial poly = new Polynomial(inputArray);
-        poly.getPolynomialDegree();
+        int[] array = {};
+        Polynomial polynomial = new Polynomial(array);
+        
+        polynomial.getPolynomialDegree();
     }
     
-    //Tests cases for addPoly()
+    // Test case for addition of 2 polynomials with valid inputs
     @Test
-    public void testAddPolynomial()
+    public void testAddPolynomials()
     {
-        int[] array_first = {1, 0, 4};
-        Polynomial polynomial_first = new Polynomial(array_first);
-        int[] array_second = {3, 4, 0, 0, 5};
-        Polynomial polynomial_second = new Polynomial(array_second);
-        int[][] output_array = {{4, 0}, {4, 1}, {4, 2}, {5, 4}};
+        int[] first_array = {1, 0, 4};
+        Polynomial first_polynomial = new Polynomial(first_array);
         
-        Polynomial demo = new Polynomial(array_first);
-        Polynomial result = demo.addPolynomial(polynomial_first, polynomial_second );
+        int[] second_array = {3, 4, 0, 0, 5};
+        Polynomial second_polynomial = new Polynomial(second_array);
         
+        int[][] expected_output = {{4, 0},
+                                  {4, 1}, 
+                                  {4, 2}, 
+                                  {5, 4}};
         
-        int[][] result_array = result.getPolynomialArray();
-        assertArrayEquals(output_array, result_array);
+        Polynomial result;
+        result = first_polynomial.addPolynomials(second_polynomial);
+        int[][] actual_output = result.getPolynomialArray();
+        
+        assertArrayEquals(expected_output, actual_output);
     }
     
-    @Test(expected = IndexOutOfBoundsException.class)
-    public void testAddPolyWithFirstArrayAsEmpty()
+    // Test case for addition of 2 polynomials with first array empty as input
+    @Test(expected = NullPointerException.class)
+    public void testAddPolynomialsWithFirstArrayAsEmpty()
     {
-        int[] inputArray1 = {};
-        Polynomial poly1 = new Polynomial(inputArray1);
+        int[] first_array = {};
+        Polynomial first_polynomial = new Polynomial(first_array);
         
-        int[] inputArray2 = {3, 4, 0, 0, 5};
-        Polynomial poly2 = new Polynomial(inputArray2);
+        int[] second_array = {3, 4, 0, 0, 5};
+        Polynomial second_polynomial = new Polynomial(second_array);
         
-        poly1.addPoly(poly2);
+        first_polynomial.addPolynomials(second_polynomial);
     }
     
-    @Test(expected = IndexOutOfBoundsException.class)
-    public void testAddPolyWithSecondArrayAsEmpty()
+    //Tests case for addition of 2 polynomials with second array empty as input
+    @Test(expected = NullPointerException.class)
+    public void testAddPolynomialsWithSecondArrayAsEmpty()
     {
-        int[] inputArray1 = {3, 4, 0, 0, 5};
-        Polynomial poly1 = new Polynomial(inputArray1);
+        int[] first_array = {3, 4, 0, 0, 5};
+        Polynomial first_polynomial = new Polynomial(first_array);
         
-        int[] inputArray2 = {};
-        Polynomial poly2 = new Polynomial(inputArray2);
+        int[] second_array = {};
+        Polynomial second_polynomial = new Polynomial(second_array);
         
-        poly1.addPoly(poly2);
+        first_polynomial.addPolynomials(second_polynomial);
     }
     
-    @Test(expected = IndexOutOfBoundsException.class)
-    public void testAddPolyWithBothArraysAsEmpty()
-    {
-        int[] inputArray1 = {};
-        Polynomial poly1 = new Polynomial(inputArray1);
-        
-        int[] inputArray2 = {};
-        Polynomial poly2 = new Polynomial(inputArray2);
-        
-        poly1.addPoly(poly2);
-    }
-    
-  //Tests cases for multiplyPoly()
+    // Test case for multiplication of 2 polynomials with valid input value 
     @Test
-    public void testMultiplyPoly()
+    public void testMultiplyPolynomials()
     {
-        int[] inputArray1 = {1, 0, 4};
-        Polynomial poly1 = new Polynomial(inputArray1);
+        int[] first_array = {1, 0, 4};
+        Polynomial first_polynomial = new Polynomial(first_array);
         
-        int[] inputArray2 = {3, 4, 0, 0, 5};
-        Polynomial poly2 = new Polynomial(inputArray2);
+        int[] second_array = {3, 4, 0, 0, 5};
+        Polynomial second_polynomial = new Polynomial(second_array);
         
-        int[][] expectedOutput = {{3, 0},
+        int[][] expected_output = {{3, 0},
                                   {4, 1}, 
                                   {12, 2},
                                   {16, 3},
                                   {5, 4},
                                   {20, 6}};
         
-        Polynomial poly;
-        poly = poly1.multiplyPoly(poly2);
-        int[][] actualOutput = poly.getPolynomialArray();
-        assertArrayEquals(expectedOutput, actualOutput);
+        Polynomial result;
+        result = first_polynomial.multiplyPolynomials(second_polynomial);
+        int[][] actual_output = result.getPolynomialArray();
+        assertArrayEquals(expected_output, actual_output);
     }
     
-    @Test(expected = IndexOutOfBoundsException.class)
-    public void testMultiplyPolyWithFirstArrayAsEmpty()
+    // Tests case for multiplication of 2 polynomials with one input as empty
+    @Test(expected = NullPointerException.class)
+    public void testMultiplyPolynomialsWithFirstArrayAsEmpty()
     {
-        int[] inputArray1 = {};
-        Polynomial poly1 = new Polynomial(inputArray1);
+        int[] first_array = {3, 4, 0, 0, 5};
+        Polynomial first_polynomial = new Polynomial(first_array);
         
-        int[] inputArray2 = {3, 4, 0, 0, 5};
-        Polynomial poly2 = new Polynomial(inputArray2);
+        int[] second_array = {};
+        Polynomial second_polynomial = new Polynomial(second_array);
         
-        poly1.multiplyPoly(poly2);
+        first_polynomial.multiplyPolynomials(second_polynomial);
     }
     
-    @Test(expected = IndexOutOfBoundsException.class)
-    public void testMultiplyPolyWithSecondArrayAsEmpty()
+    // Tests case for multiplication of 2 polynomials with both input as empty
+    @Test(expected = NullPointerException.class)
+    public void testMultiplyPolynomialsWithSecondArrayAsEmpty()
     {
-        int[] inputArray1 = {3, 4, 0, 0, 5};
-        Polynomial poly1 = new Polynomial(inputArray1);
+        int[] first_array = {};
+        Polynomial first_polynomial = new Polynomial(first_array);
         
-        int[] inputArray2 = {};
-        Polynomial poly2 = new Polynomial(inputArray2);
+        int[] second_array = {};
+        Polynomial second_polynomial = new Polynomial(second_array);
         
-        poly1.multiplyPoly(poly2);
-    }
-    
-    @Test(expected = IndexOutOfBoundsException.class)
-    public void testMultiplyPolyWithBothArraysAsEmpty()
-    {
-        int[] inputArray1 = {};
-        Polynomial poly1 = new Polynomial(inputArray1);
-        
-        int[] inputArray2 = {};
-        Polynomial poly2 = new Polynomial(inputArray2);
-        
-        poly1.multiplyPoly(poly2);
+        first_polynomial.multiplyPolynomials(second_polynomial);
     }
 }
