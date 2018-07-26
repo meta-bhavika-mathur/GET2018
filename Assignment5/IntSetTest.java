@@ -6,21 +6,21 @@ import org.junit.Test;
 public class IntSetTest {
 
     // To check that invalid value is not present in integer set
- 	  @Test (expected = AssertionError.class)
+    @Test (expected = AssertionError.class)
     public void testInvalidSet()
     {
-		      int value = 993;
-		      int array[] = new int[]{-1, -992, 993, 994, 995, 996, 997, 998, 999, 5000};
+	int value = 993;
+	int array[] = new int[]{-1, -992, 993, 994, 995, 996, 997, 998, 999, 5000};
         IntSet check_member = new IntSet(array);
         
         assertEquals( true, check_member.isMember(value));		
     }
 	
-	   // Test case to check isMember method i.e to find if a value is a member of the set
+    // Test case to check isMember method i.e to find if a value is a member of the set
     @Test
     public void testIfMember()
     {
-    	   int value = 993;
+    	int value = 993;
         int array[] = new int[]{991, 992, 993, 994, 995, 996, 997, 998, 999, 1000};
         IntSet check_member = new IntSet(array);
         
@@ -31,7 +31,7 @@ public class IntSetTest {
     @Test
     public void testIfNotMember()
     {
-    	   int value = 99;
+    	int value = 99;
         int array[] = new int[]{991, 992, 993, 994, 995, 996, 997, 998, 999, 1000};
         IntSet check_member = new IntSet(array);
         
@@ -42,7 +42,7 @@ public class IntSetTest {
     @Test (expected = NullPointerException.class)
     public void testIsMemberWithEmptyArray()
     {
-    	   int value = 993;
+    	int value = 993;
         int array[] = new int[]{};
         IntSet check_member = new IntSet(array);
         
@@ -53,8 +53,8 @@ public class IntSetTest {
     @Test (expected = AssertionError.class)
     public void testIsMemberWithValueOutsideUpperLimit()
     {
-    	   int value = 1500;
-    	   int[] array = new int[]{991, 992, 993, 994, 995, 996, 997, 998, 999, 1000};
+    	int value = 1500;
+    	int[] array = new int[]{991, 992, 993, 994, 995, 996, 997, 998, 999, 1000};
         IntSet check_member = new IntSet(array);
         
         assertEquals( true, check_member.isMember(value));		
@@ -64,8 +64,8 @@ public class IntSetTest {
     @Test (expected = AssertionError.class)
     public void testIsMemberWithValueOutsideLowerLimit()
     {
-    	   int value = -20;
-    	   int[] array = new int[]{991, 992, 993, 994, 995, 996, 997, 998, 999, 1000};
+    	int value = -20;
+    	int[] array = new int[]{991, 992, 993, 994, 995, 996, 997, 998, 999, 1000};
         IntSet check_member = new IntSet(array);
         
         assertEquals( true, check_member.isMember(value));		
@@ -128,7 +128,7 @@ public class IntSetTest {
     @Test
     public void testGetUnion() {
         
-    	   int[] first_array = new int[]{1,8,10,11};
+    	int[] first_array = new int[]{1,8,10,11};
         int[] second_array = new int[]{8,2,16,10,20};
         int[] third_array = new int[]{1,2,8,10,11,16,20};
         IntSet first_set = new IntSet(first_array);
