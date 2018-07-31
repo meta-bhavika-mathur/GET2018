@@ -1,7 +1,6 @@
 package assignment6;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class SparseMatrixTest {
@@ -57,7 +56,7 @@ public class SparseMatrixTest {
 		assertEquals( true, firstMatrix.isSymmetric());
 	}
 	
-	// Test to find if a matrix is symmetric 
+	// Test to find if a matrix is symmetric when input provided in non symmetric matrix
 	@Test
 	public void testIsSymmetricWithNonSymmetric() {
 		
@@ -67,7 +66,7 @@ public class SparseMatrixTest {
 		assertEquals( false, firstMatrix.isSymmetric());
 	}
 	
-	// Test to perform addition of 2 sparse matrices
+	// Test to perform multiplication of 2 sparse matrices
 	@Test
 	public void testToMultiplyMatrix() {
 		
@@ -75,22 +74,22 @@ public class SparseMatrixTest {
 		int[][] second = new int[][]{{2, 0, 8}, {5, 1, 0}};  
 		int[][] expectedOutput = new int[][]{{0, 0, 96}, {0, 1, 10}, {1, 0, 18}, {1, 1, 5}}; 
 										 	
-		       
 		SparseMatrix firstMatrix = new SparseMatrix(first);
 		SparseMatrix secondMatrix = new SparseMatrix(second);
 		assertArrayEquals( expectedOutput, firstMatrix.multiplyMatrices(secondMatrix));
 	}
 	
-	// Test to perform addition of 2 sparse matrices
-	@Test
-	public void testToMultiplyMatrices() {
+	/* Test to perform multiplication of 2 sparse matrices when number of columns in first matrix 
+	 * is not equal to number of rows in other
+	 */
+	@Test(expected = AssertionError.class)
+	public void testMultiplyWhenColomnNotEqualsRows() {
 		
 		int[][] first = new int[][]{{0, 10, 0, 12}, {0, 0, 0, 0}, {0, 0, 5, 0}, {15, 12, 0, 0}};  
-		int[][] second = new int[][]{{0, 0, 8, 0}, {0, 0, 0, 23}, {0,0,9,0}, {20, 25, 0, 0}}; 
+		int[][] second = new int[][]{{2, 0, 8}, {5, 1, 0}}; 
 		int[][] expectedOutput = new int[][]{{0, 0, 240}, {0, 1, 300}, {0, 3, 230}, {2, 2, 45},
 											 {3, 2, 120}, {3, 3, 276}};
-										 	
-		       
+							
 		SparseMatrix firstMatrix = new SparseMatrix(first);
 		SparseMatrix secondMatrix = new SparseMatrix(second);
 		assertArrayEquals( expectedOutput, firstMatrix.multiplyMatrices(secondMatrix));
