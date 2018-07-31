@@ -2,10 +2,10 @@ package assignment6;
 
 public final class SparseMatrix {
 	 
-	final String ERROR_MESSAGE_SUM = "Cannot find sum!";
-	final String ERROR_MESSAGE_MULTIPLY = "Cannot perform multiplication!";
-	final String ERROR_MESSAGE_NOT_SYMMETRIC = "Can't be symmetric!";
-	private int[][] sparse_matrix; 
+    final String ERROR_MESSAGE_SUM = "Cannot find sum!";
+    final String ERROR_MESSAGE_MULTIPLY = "Cannot perform multiplication!";
+    final String ERROR_MESSAGE_NOT_SYMMETRIC = "Can't be symmetric!";
+    private int[][] sparse_matrix; 
     private int numRows;
     private int numCols;
     private int nonZeroElements;
@@ -304,4 +304,3 @@ public final class SparseMatrix {
         return productResult;
      }
 }
-    
