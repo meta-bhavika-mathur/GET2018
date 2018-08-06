@@ -21,24 +21,25 @@ public class InfixToPostfix
             String[] infixArray = infixExpression.split(" ");
             StackUsingArray<String> stack = new StackUsingArray<String>();
             String postfixExpression = new String();
-            
-            
+             
             for (int index = 0; index < infixArray.length; index++) 
             {
                 String currentItem = infixArray[index];
                 
-                if (EvaluatorUtility.isDigit( currentItem ))
+                if ( EvaluatorUtility.isDigit( currentItem ))
                     postfixExpression = postfixExpression.concat( currentItem );
                 else
-                    if( currentItem.equals("(") )
+                    if ( EvaluatorUtility.isAlphabet( currentItem ))
+                    postfixExpression = postfixExpression.concat( currentItem );
+                else
+                    if( currentItem.equals( "(" ))
                         stack.push(currentItem);
                     else
-                        if( currentItem.equals(")") )
+                        if( currentItem.equals( ")" ))
                         {
                             while ( !stack.isEmpty() && !stack.top().equals("(") )         
-                            {
                                 postfixExpression = postfixExpression.concat(stack.pop()); 
-                            }
+
                             if(!stack.isEmpty() && stack.top().equals("("))
                                 stack.pop();
                             else
@@ -46,10 +47,9 @@ public class InfixToPostfix
                          }
                          else
                          {
-                            while( !stack.isEmpty() && ( EvaluatorUtility.getPriority(currentItem) <= EvaluatorUtility.getPriority(stack.top())))
-                            {
+                            while( !stack.isEmpty() && ( EvaluatorUtility.getPriority(currentItem) <= EvaluatorUtility.getPriority(stack.top())));
                                 postfixExpression = postfixExpression.concat( stack.pop() ); 
-                            }
+                 
                             stack.push(currentItem);
                          }
             }
