@@ -29,9 +29,9 @@ public class EvaluatePostfixExpression
                 else 
                     if (EvaluatorUtility.isArithmeticOperator(arrayOfPostFixTokens[index]))
                     {
-                        firstOperand = Integer.parseInt(stack.pop());
                         secondOperand = Integer.parseInt(stack.pop());
-                        stack.push(""+ evaluateExpression(firstOperand, secondOperand, arrayOfPostFixTokens[index]));
+                        firstOperand = Integer.parseInt(stack.pop());
+                        stack.push("" + evaluateExpression(firstOperand, secondOperand, arrayOfPostFixTokens[index]));
                     }        
                     else 
                        return 0;
