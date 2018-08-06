@@ -55,32 +55,28 @@ public class EvaluatorUtility
     /**
      * to check whether the token of a infix expression is a digit or not 
      * @param value, string containing either digit or operand
-     * @return true, if the given token is a digit otherwise false
+     * @return true, if the given token is a digit or a series of digits, otherwise false
      */
-     public static boolean isDigit( String token ) 
+     public static boolean isDigit(String token) 
      {
          for ( int index = 0; index < token.length(); index++ ) 
-         {
              if (!((token.charAt(index) >= '0') && (token.charAt(index) <= '9')))
                  return false;
-         }
          return true;
      }
      
      /**
       * To check whether the given token is alphabet or digit
       * @param value, token to check
-      * @return true if token s alphabet or digit, otherwise false
+      * @return true if token is an alphabet or series of alphabet, otherwise false
       */
-     public static boolean isDigitOrAlphabet(String value) 
+     public static boolean isAlphabet(String value) 
      {
          String valueInUpperCase = value;
          
          for (int index = 0; index < valueInUpperCase.length(); index++) 
-         {
-             if (!(isDigit(""+value.charAt(index)) || Character.isAlphabetic(value.charAt(index))))
+             if (!Character.isAlphabetic(value.charAt(index))))
                  return false;
-         }
          return true;
      }
 }
