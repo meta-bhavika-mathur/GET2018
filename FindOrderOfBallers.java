@@ -35,15 +35,15 @@ public class FindOrderOfBallers
          
     	 for( int i = 0; i < totalBalls; i++)
          {       
-            for(Bowler bowler : listOfBallers)
-            {
+             for(Bowler bowler : listOfBallers)
+             {
                 maximumQuota = listOfBallers.get(0).getQuota();
                 if(bowler.getQuota() >= maximumQuota)
                     maxBowler = bowler; 
-            }
-           nameOfBallers.add(maxBowler.getName());
-           maxBowler.decrementNumberOfBalls();  
-        } 
-        return nameOfBallers;
+             }
+             nameOfBallers.add(maxBowler.getName());
+             maxBowler.decrementNumberOfBalls();  
+         } 
+         return nameOfBallers;
      }     
 }
