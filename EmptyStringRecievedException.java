@@ -1,5 +1,6 @@
 package dsassignment5;
 
+// Class to define custom exception to throw excepio when empty string is recieved as input
 public class EmptyStringRecievedException extends Exception
 {
     String exceptionMessage;  
