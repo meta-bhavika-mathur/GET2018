@@ -10,7 +10,7 @@ public class Dictionary implements DictionaryInterface
 {
     final String NULL_POINTER_EXCEPTION_MESSAGE = "Null value recieved!";
     final String EMPTY_STRING_MESSSAGE = "Empty string recieved!";
-	BinarySearchTree dictionaryTree;                    // Binary Search Tree to store dictionary elements
+    BinarySearchTree dictionaryTree;                    		// Binary Search Tree to store dictionary elements
     
     // Constructor for dictionary class
     public Dictionary() 
@@ -48,9 +48,9 @@ public class Dictionary implements DictionaryInterface
     		if(key == null || value == null)
     			throw new NullPointerException(NULL_POINTER_EXCEPTION_MESSAGE); 
     		if(!( key.length() <= 0) && !( value.length() <= 0))
-    	    {
+    	    	{
     			dictionaryTree.insert(key, value);
-    		    result = true;
+    		    	result = true;
     		}
     		return result;	
     	}
