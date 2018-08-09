@@ -2,7 +2,7 @@ package dsassignment5;
 
 public class EmptyStringRecievedException extends Exception
 {
-	String exceptionMessage;  
+    String exceptionMessage;  
     /**
      * Initiates Empty String Received Exception when empty string is received
      * @param message, exception message
