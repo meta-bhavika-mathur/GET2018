@@ -2,10 +2,7 @@ package dsassignment5;
 
 import java.io.File;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -40,7 +37,7 @@ public class JSONInput
     }
     
     /**
-     * Adds data from .json file
+     * Adds data from json file
      */
     public void add()
     {
