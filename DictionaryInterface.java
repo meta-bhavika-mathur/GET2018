@@ -5,8 +5,8 @@ import java.util.*;
 // Interface defining methods for implementing a dictionary
 public interface DictionaryInterface
 {
-	// To add a new entry to a dictionary
-	boolean addNewEntry(String key, String value)throws NullPointerException;                     
+    // To add a new entry to a dictionary
+    boolean addNewEntry(String key, String value)throws NullPointerException;                     
    
     // To delete a entry from a dictionary
     void deleteEntry(String key) throws NullPointerException, EmptyStringRecievedException;                                       
