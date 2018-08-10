@@ -19,6 +19,28 @@ public class BinarySearchTree
         root = null;
     }
     
+    // Parameterized constructor to create dictionary with initial entries from text file using JSON
+    public BinarySearchTree(String initialWordList)
+    {
+        JSONParser parser = new JSONParser();
+        root = null;
+
+        try 
+        {
+            Object obj = parser.parse(new FileReader(initialWordList));
+            JSONObject jsonObject = (JSONObject) obj;
+
+            for (Object object : jsonObject.keySet()) 
+            {
+                insert(object.toString(), jsonObject.get(object).toString());             
+            }
+        } 
+        catch (Exception exception) 
+        {
+            System.out.println(exception.getMessage());
+        }
+    }
+    
     /**
      * To insert a new entry to the binary search tree
      * @param key, representing word of the dictionary
