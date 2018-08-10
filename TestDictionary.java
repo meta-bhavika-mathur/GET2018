@@ -6,7 +6,7 @@ import java.util.*;
 
 public class TestDictionary 
 {
-    Dictionary dictionary = new Dictionary();
+    Dictionary newDictionary = new Dictionary("C:/Users/User21/workspace/DAtaStructuresAsignment-5/src/dsassignment5");
       
     /**
      * Test to add new entry to the dictionary
