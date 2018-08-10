@@ -2,13 +2,13 @@ package Session1;
 
 public class StackUsingArray<T> implements StackInterface<T>
 {
-	
+    final String UNDERFLOW_EXCEPTION_MESSAGE = "Empty Stack Found!";
     private int stackCapacity;
     private int top;
     T[] array;
     
     // Constructor for stack
-    StackUsingArray()
+    public StackUsingArray()
     {
         top = -1;
         stackCapacity = 100;
@@ -30,14 +30,14 @@ public class StackUsingArray<T> implements StackInterface<T>
     @Override
     public boolean push(T data) 
     {  
-        if(top == stackCapacity - 1)
-            return false;
-        else
+        boolean result = false;
+    	if(!(top == stackCapacity - 1))
         {   
             top++;
             array[top] = data;
-            return true;
+            result = true;
         }
+    	return result;
     }
 
     /**
@@ -45,16 +45,15 @@ public class StackUsingArray<T> implements StackInterface<T>
      * @return p
      */
     @Override
-    public T pop() throws ArrayIndexOutOfBoundsException
+    public T pop() throws UnderflowException
     {
         if( isEmpty())
-            throw new ArrayIndexOutOfBoundsException("Stack Underflow!");
+            throw new UnderflowException(UNDERFLOW_EXCEPTION_MESSAGE);
         else
         {
             T poppedData;
             poppedData = array[top];
             top--;
-            
             return poppedData;
         }
     }
@@ -73,10 +72,10 @@ public class StackUsingArray<T> implements StackInterface<T>
      * To get the top element of the stack
      */
     @Override
-    public T top() throws ArrayIndexOutOfBoundsException
+    public T top() throws UnderflowException
     {
         if( isEmpty())
-            throw new ArrayIndexOutOfBoundsException("Stack Underflow!");
+            throw new UnderflowException(UNDERFLOW_EXCEPTION_MESSAGE);
         else
             return array[top];
     }
