@@ -1,12 +1,10 @@
 package Session1;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class TestQueueUsingArray 
 {
-
     QueueUsingArray<Integer> queue = new QueueUsingArray<Integer>(5); 
     
    /**
@@ -16,8 +14,7 @@ public class TestQueueUsingArray
     public void testAddItemToQueue() 
     {
            int data = 25;
-           boolean result = queue.addItemToQueue(data);
-           
+           boolean result = queue.addItemToQueue(data);         
            assertEquals(true, result);						// Return true if item is successfully added
     }
     
@@ -49,20 +46,32 @@ public class TestQueueUsingArray
          
          queue.addItemToQueue(data[0]);
          queue.addItemToQueue(data[1]);
-         
-         int deletedItem = queue.deleteItemFromQueue();
-         assertEquals(1, deletedItem);						// Returns 1 as item at front in queue was 1
-         
+         try
+         {
+        	 int deletedItem = queue.deleteItemFromQueue();
+        	 assertEquals(1, deletedItem);						// Returns 1 as item at front in queue was 1
+         }
+         catch(Exception exception)
+         {
+         	System.out.println(exception.getMessage());
+         }
      }
      
      /**
       * To delete item from the queue when queue is empty
       */
-     @Test(expected = ArrayIndexOutOfBoundsException.class)
+     @Test
      public void testDeleteItemFromQueueWhenEmpty()
      {
-         int deletedItem = queue.deleteItemFromQueue();
-         assertEquals(null, deletedItem);
+         try
+         {
+        	 int deletedItem = queue.deleteItemFromQueue();
+        	 assertEquals(null, deletedItem);
+         }
+         catch(Exception exception)
+         {
+         	System.out.println(exception.getMessage());
+         }
      }
      
      /**
@@ -73,12 +82,19 @@ public class TestQueueUsingArray
      {
          int[] data = new int[]{1, 2};
          
-         queue.addItemToQueue(data[0]);
-         queue.addItemToQueue(data[1]);
-         queue.deleteItemFromQueue();
-         queue.deleteItemFromQueue();
-         
-         assertEquals(true, queue.isEmpty());				// Returns true as queue is empty
+         try
+         {
+        	 queue.addItemToQueue(data[0]);
+        	 queue.addItemToQueue(data[1]);
+        	 queue.deleteItemFromQueue();
+        	 queue.deleteItemFromQueue();
+        	 assertEquals(true, queue.isEmpty());				// Returns true as queue is empty
+         }
+         catch(Exception exception)
+         {
+         	System.out.println(exception.getMessage());
+         }
+        
      }
      
      /**
