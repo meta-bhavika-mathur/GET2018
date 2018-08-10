@@ -1,7 +1,6 @@
 package Session1;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class TestQueueUsingList {
@@ -15,8 +14,7 @@ public class TestQueueUsingList {
     public void testAddItemToQueue() 
     {
            int data = 25;
-           boolean result = queue.addItemToQueue(data);
-           
+           boolean result = queue.addItemToQueue(data);           
            assertEquals(true, result);
     }
      
@@ -31,8 +29,7 @@ public class TestQueueUsingList {
          queue.addItemToQueue(data[1]);
          
          int deletedItem = queue.deleteItemFromQueue();
-         assertEquals(1, deletedItem);					// Returns 1 as item at front in queue was 1
-         
+         assertEquals(1, deletedItem);					// Returns 1 as item at front in queue was 1        
      }
      
     /**
