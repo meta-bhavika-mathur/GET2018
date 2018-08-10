@@ -1,26 +1,21 @@
 package employeesorting;
 
 import static org.junit.Assert.*;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
+import java.util.*;
 import org.junit.Test;
 
 import employee.Employee;
 import employee.EmployeeComparision;
 
-import java.util.*;
 
 public class TestEmployeeNameBasedSorting 
 {
-	EmployeeComparision employee = new EmployeeComparision();
+    EmployeeComparision employee = new EmployeeComparision();
 	
-	/**
-	 * Test to add a new employee to the employee list
-	 */
-	@Test
+    /**
+     * Test to add a new employee to the employee list
+     */
+    @Test
     public void testAddEmployee()
     {
         boolean expectedOutput = true;
@@ -28,10 +23,10 @@ public class TestEmployeeNameBasedSorting
         assertEquals(expectedOutput, actualOutput);
     }
 	
-	/**
-	 * Test to add a new employee to the employee list with id equal to another existing employee
-	 */
-	@Test
+    /**
+     * Test to add a new employee to the employee list with id equal to another existing employee
+     */
+    @Test
     public void testAddEmployeeWithAlreadyExistingId()
     {
 		employee.addNewEmployee(new Employee(7, "DDC", "Address"));
@@ -43,7 +38,7 @@ public class TestEmployeeNameBasedSorting
 	/** 
 	 *To test natural order sorting of objects of employee class based on their id
 	 */
-	@Test
+    @Test
 	public void testNaturalOrderSortingOnEmployeeId() 
 	{
 		
