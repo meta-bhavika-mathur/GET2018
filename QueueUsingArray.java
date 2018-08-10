@@ -2,12 +2,13 @@ package Session1;
 
 public class QueueUsingArray<T> implements QueueInterface<T> 
 {
-    int queueMaximumCapacity;
+	final String UNDERFLOW_EXCEPTION_MESSAGE = "Empty Stack Found!";
+	int queueMaximumCapacity;
     int front, rear;
-    T array[];
+    public T array[];
 
     // Constructor for queue
-    public QueueUsingArray(int capacity )
+    public QueueUsingArray(int capacity)
     {
         front = rear = -1;
         this.queueMaximumCapacity = capacity;
@@ -33,7 +34,6 @@ public class QueueUsingArray<T> implements QueueInterface<T>
         }
         
         array[rear] = data;
-       // lengthOfQueue++;
         return true;
     }
     
@@ -43,10 +43,10 @@ public class QueueUsingArray<T> implements QueueInterface<T>
      * @throws ArrayIndexOutOfBoundException if queue is empty
      */
     @Override
-    public T deleteItemFromQueue() throws ArrayIndexOutOfBoundsException
+    public T deleteItemFromQueue() throws UnderflowException
     {
         if(isEmpty())
-            throw new ArrayIndexOutOfBoundsException("Underflow Exception");
+            throw new UnderflowException(UNDERFLOW_EXCEPTION_MESSAGE);
         else
         {
             T deletedItem = array[front];
@@ -54,8 +54,7 @@ public class QueueUsingArray<T> implements QueueInterface<T>
             if( front == rear )
                 front = rear = -1;
             else 
-                front++;
-            
+                front++;     
             return deletedItem;
         }
     }
@@ -78,5 +77,13 @@ public class QueueUsingArray<T> implements QueueInterface<T>
     public boolean isFull() 
     {
         return rear == queueMaximumCapacity - 1;
+    }
+    
+    public T getItemAtIndex(int i) throws UnderflowException
+    {
+    	if(isEmpty())
+    		throw new UnderflowException(UNDERFLOW_EXCEPTION_MESSAGE);
+    	else
+    		return array[i];
     }
 }
