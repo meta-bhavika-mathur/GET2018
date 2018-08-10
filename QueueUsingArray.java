@@ -23,6 +23,7 @@ public class QueueUsingArray<T> implements QueueInterface<T>
     @Override
     public boolean addItemToQueue(T data)
     {
+        boolean result = true;
         if(isFull())
             return false;
         else
@@ -34,7 +35,7 @@ public class QueueUsingArray<T> implements QueueInterface<T>
         }
         
         array[rear] = data;
-        return true;
+        return result;
     }
     
     /**
