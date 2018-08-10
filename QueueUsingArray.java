@@ -2,8 +2,8 @@ package Session1;
 
 public class QueueUsingArray<T> implements QueueInterface<T> 
 {
-	final String UNDERFLOW_EXCEPTION_MESSAGE = "Empty Stack Found!";
-	int queueMaximumCapacity;
+    final String UNDERFLOW_EXCEPTION_MESSAGE = "Empty Stack Found!";
+    int queueMaximumCapacity;
     int front, rear;
     public T array[];
 
