@@ -4,7 +4,7 @@ package Session1;
 public interface QueueInterface<T> 
 {
     boolean addItemToQueue(T data);
-    T deleteItemFromQueue();
+    T deleteItemFromQueue() throws UnderflowException;
     boolean isEmpty();
     boolean isFull();
 }
