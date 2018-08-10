@@ -2,7 +2,7 @@ package Session1;
 
 public class StackUsingLinkedList<T> implements StackInterface<T> 
 {
- 
+	   final String UNDERFLOW_EXCEPTION_MESSAGE = "Empty stack found!";
     protected NodeOfLinkedList<T> top;
     
     // Constructor for stack using linked list
@@ -34,10 +34,10 @@ public class StackUsingLinkedList<T> implements StackInterface<T>
      * To pop data from the stack
      */
     @Override
-    public T pop() throws ArrayIndexOutOfBoundsException
+    public T pop() throws UnderflowException
     {
         if(isEmpty())
-            throw new ArrayIndexOutOfBoundsException("Stack Underflow!");
+            throw new UnderflowException(UNDERFLOW_EXCEPTION_MESSAGE);
         else
         {
             T poppedData; 
@@ -51,12 +51,12 @@ public class StackUsingLinkedList<T> implements StackInterface<T>
    /**
     * To get top element in the stack
     */
-    public T top() throws ArrayIndexOutOfBoundsException
+    public T top() throws UnderflowException
     {
         NodeOfLinkedList<T> pointerToTop = top;
 
         if(isEmpty())
-            throw new ArrayIndexOutOfBoundsException("Stack Underflow!");
+            throw new UnderflowException(UNDERFLOW_EXCEPTION_MESSAGE);
         else
             return pointerToTop.getData();
     }
