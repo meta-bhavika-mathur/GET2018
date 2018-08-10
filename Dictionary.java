@@ -19,19 +19,12 @@ public class Dictionary implements DictionaryInterface
     }
     
     /**
-     * To create a dictionary with initial list of entries
+     * Constructor to create a dictionary with initial list of entries
      * @initialWordList, list of dictionary entries to be added to the dictionary at the time of creation
-     */  
-    public void Dictionary(Map<String, String> initialWordList) 
+     */
+    public Dictionary(String initialListOfWords) 
     {
-        dictionaryTree = new BinarySearchTree();
-        
-        Iterator iterator = initialWordList.entrySet().iterator();
-        while(iterator.hasNext())
-        {
-           Map.Entry record = (Map.Entry)iterator.next(); 
-           dictionaryTree.insert((String)record.getKey(), (String)record.getValue());
-        }
+        dictionaryTree = new BinarySearchTree(initialListOfWords);
     }
 
     /**
