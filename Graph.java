@@ -71,14 +71,13 @@ class Graph implements UndirectedWeightedGraph
                 break;
             }
         }
-        return connected;
-   
+        return connected;   
     }
     
     /**
      * Utility method to perform depth first traversal of a graph 
-     * @param vertex
-     * @param visited
+     * @param vertex, veretx in the graph
+     * @param visited, an array representing traversed nodes in the graph as boolean true
      */
     private void DepthFirstSearch(int vertex , boolean[] visited)
     {
@@ -147,13 +146,12 @@ class Graph implements UndirectedWeightedGraph
 
             for (Edge edge : edgesList) 
             {
-                int v = edge.destination;
-                if (!currentShortestDistance[v] && edge.weight != 0  && distance[minimumDistanceVertex] != Integer.MAX_VALUE 
-                    && distance[minimumDistanceVertex] + edge.weight < distance[v]) 
+                int destinationVertex = edge.destination;
+                if (!currentShortestDistance[destinationVertex] && edge.weight != 0  && distance[minimumDistanceVertex] != Integer.MAX_VALUE 
+                    && distance[minimumDistanceVertex] + edge.weight < distance[destinationVertex]) 
                 {
-                    distance[v] = distance[minimumDistanceVertex] + edge.weight;
+                    distance[destinationVertex] = distance[minimumDistanceVertex] + edge.weight; // Update distance with new distance
                 }               
-       
             }
         }
         shortestPath = new ArrayList<>();   
@@ -167,20 +165,22 @@ class Graph implements UndirectedWeightedGraph
         }
         return shortestPath;
     }
-    
-    public int getMinimumKeyIndex(int minimumWeight[], Boolean boolSet[]) 
+    /**
+     * To find index of vertex with minimum weight and not yet included in the path
+     */
+    public int getMinimumKeyIndex(int minimumWeight[], Boolean setOfIncludedVertices[]) 
     {
-        int min = Integer.MAX_VALUE, min_index = -1;
+        int minimumValue = Integer.MAX_VALUE, minimumIndex = -1;
 
-        for (int v = 0; v < numberOfVertices; v++)
+        for (int i = 0; i < numberOfVertices; i++)
         {     
-            if (boolSet[v] == false && minimumWeight[v] < min) 
+            if (setOfIncludedVertices[i] == false && minimumWeight[i] < minimumValue) 
             {
-                min = minimumWeight[v];
-                min_index = v;
+                minimumValue = minimumWeight[i];
+                minimumIndex = i;
             }
         }
-        return min_index;
+        return minimumIndex;
     }
     
     /**
@@ -211,8 +211,7 @@ class Graph implements UndirectedWeightedGraph
             
             for (Edge adjacentEdge : edges)                                 // Updates key value and parent index of the adjacent vertices that are not yet included in MST
             {
-                int v = adjacentEdge.destination;
-                
+                int v = adjacentEdge.destination;                
                 if (adjacentEdge.weight != 0 && !spanningTreeSet[v]         // Update the key, if weight(u,v) is smaller than key[v]
                     && adjacentEdge.weight < minimumWeight[v]) 
                 {
@@ -229,10 +228,8 @@ class Graph implements UndirectedWeightedGraph
             edges = adjacencylist[i];
             for (Edge edgeConnected : edges) 
             {
-
                 if (edgeConnected.destination == parent[i]) 
                 {
-
                     edge = new Edge(parent[i], i, edgeConnected.weight);                          
                     minSpanningtree.add(edge);
                 }
