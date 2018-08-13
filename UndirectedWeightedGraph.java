@@ -2,6 +2,7 @@ package undirectedweightedgraph;
 
 import java.util.List;
 
+// Interface to define methods for Undirected Weighted Graph
 public interface UndirectedWeightedGraph 
 {
 	boolean isConnected(int startVertex) throws InvalidVertexException;
