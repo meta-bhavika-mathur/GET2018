@@ -8,7 +8,7 @@ public class Edge
 {
     int source;             // Source of edge
     int destination;        // Destination of edge
-    int weight;             // Weight of 
+    int weight;             // Weight of edge
 
     // Constructor for Edge class
     public Edge(int source, int destination, int weight) 
