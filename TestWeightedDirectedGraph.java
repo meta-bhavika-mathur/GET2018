@@ -1,10 +1,7 @@
 package undirectedweightedgraph;
 
 import static org.junit.Assert.*;
-
-import java.util.ArrayList;
-import java.util.List;
-
+import java.util.*;
 import org.junit.Test;
 
 public class TestWeightedDirectedGraph 
