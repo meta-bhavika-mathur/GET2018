@@ -47,4 +47,11 @@ public class Node
 	{
 		return priority;
 	}
+	
+	// To decrement number of balls in a bowlers quota
+	public void decrementNumberOfBalls()
+	{
+            if(priority != 0)
+	        priority--;
+	}
 }
