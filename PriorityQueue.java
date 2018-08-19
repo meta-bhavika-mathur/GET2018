@@ -1,4 +1,4 @@
-package priorityqueue;
+package numberofbowlers;
 
 /**
  *  Class to implement a priority queue. A priority queue is a queue, that stores elements along 
@@ -109,5 +109,68 @@ public class PriorityQueue implements PriorityQueueInterface
     {
     	Node maxElement = array[1];
     	return maxElement;
-    }  
+    } 
+    
+    /**
+     *  To adjust the heap so that maximum element or element with maximum priority is at is at 
+     *  the front in the priority queue
+     *  @param index, index in the heap from where the heap structure has to be adjusted
+     */
+    public void maxHeapify(int index)
+    {
+        int largest = index;
+        int leftIndex = 2 * index;
+        int rightIndex = 2 * index + 1;
+
+        if (leftIndex < capacity - 1 && array[index].getPriority() < array[leftIndex].getPriority())
+        {
+            largest = leftIndex;
+        }
+        if (rightIndex < capacity - 1 && array[largest].getPriority() < array[rightIndex].getPriority()) 
+        {
+            largest = rightIndex;
+        }
+
+        if (largest != index) 
+        {
+            swap(index, largest);
+            maxHeapify(largest);
+        }
+    }
+    
+    private void swap(int firstIndex, int secondIndex)
+    {
+       Node temp = array[firstIndex];
+       array[firstIndex] = array[secondIndex];
+       array[secondIndex] = temp;
+    }
+    
+    public void printHeap() 
+    {
+        if (array == null)
+            System.out.print("Empty queue!");
+        
+        int iMax = capacity - 1, i;
+        
+        if (iMax == -1)
+            System.out.print("[]");
+
+        StringBuilder b = new StringBuilder();
+        b.append('[');
+        for (i = 1; i < iMax; i++)
+        {
+            b.append(array[i].getPriority());
+            b.append(", ");
+        }
+        System.out.println(b.append(array[i].getPriority()).append(']').toString());
+    }
+    
+    /** 
+     * To create a heap structure of the array elements such that maximum element is at the top
+     */
+    public void buildMaxHeap()
+    {
+        for (int i = (capacity - 1) / 2 - 1; i > 0; i--)
+            maxHeapify(i);
+    }    
 }
