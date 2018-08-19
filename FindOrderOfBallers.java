@@ -1,20 +1,22 @@
-package bowler;
+package numberofbowlers;
 
 import java.util.*;
 
 // Class to find the order or sequence of bowlers so that runs scored by the opponent cricketer are minimized
-public class FindOrderOfBallers
+public class FindOrderOfBowlers
 {
     List<String> nameOfBallers;
     int maximumQuota, quota;
     String name;
-    Bowler maxBowler; 
+    Node maxBowler; 
+    PriorityQueue bowlerList;
     
     // Constructor for FindOrderOfBalls
-    public FindOrderOfBallers()
+    public FindOrderOfBowlers()
     {    
         nameOfBallers = new ArrayList<String>();
         maxBowler = null;
+        bowlerList = new PriorityQueue(4);
     }
     
     /**
@@ -24,7 +26,7 @@ public class FindOrderOfBallers
      * @param listOfBallers, list of bowlers 
      * @return nameOfBallers, list of names of bowlers in order in which they will bowl
      */
-    public List<String> findOrderOfBowling(int numberOfBowlers, int totalBalls, List<Bowler> listOfBallers)
+    public List<String> findOrderOfBowling(int numberOfBowlers, int totalBalls, Node[] listOfBallers)
     {          
          if((numberOfBowlers <= 0 || totalBalls <= 0) || (numberOfBowlers > totalBalls))
          {
@@ -32,18 +34,21 @@ public class FindOrderOfBallers
         	 nameOfBallers.add(string);
         	 return nameOfBallers;
          }
-         
-    	 for( int i = 0; i < totalBalls; i++)
-         {       
-             for(Bowler bowler : listOfBallers)
-             {
-                maximumQuota = listOfBallers.get(0).getQuota();
-                if(bowler.getQuota() >= maximumQuota)
-                    maxBowler = bowler; 
-             }
-             nameOfBallers.add(maxBowler.getName());
-             maxBowler.decrementNumberOfBalls();  
-         } 
-         return nameOfBallers;
+              
+         bowlerList.insertElement(listOfBallers[0].getData(), listOfBallers[0].getPriority());
+         bowlerList.insertElement(listOfBallers[1].getData(), listOfBallers[1].getPriority());
+ 		 bowlerList.insertElement(listOfBallers[2].getData(), listOfBallers[2].getPriority());
+ 		 bowlerList.insertElement(listOfBallers[3].getData(), listOfBallers[3].getPriority());
+ 	       
+         bowlerList.printHeap();
+
+         for(int i = 0 ; i < totalBalls; i++ )
+         {
+        	 maxBowler = bowlerList.getElementWithMaximumPriority();
+        	 nameOfBallers.add(maxBowler.getData());
+        	 maxBowler.decrementNumberOfBalls();
+        	 bowlerList.maxHeapify(1);
+         }
+        return nameOfBallers; 
      }     
 }
