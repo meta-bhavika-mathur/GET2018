@@ -1,4 +1,4 @@
-package priorityqueue;
+package numberofbowlers;
 
 public class Node
 {
