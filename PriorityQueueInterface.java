@@ -1,4 +1,4 @@
-package priorityqueue;
+package numberofbowlers;
 
 // Interface to implement priority queue
 public interface PriorityQueueInterface
