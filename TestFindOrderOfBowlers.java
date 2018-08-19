@@ -1,4 +1,4 @@
-package bowler;
+package numberofbowlers;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -9,21 +9,21 @@ public class TestFindOrderOfBowlers
     /**
      * To test the order of bowlers such that runs scored by opponent are minimum
      */
-	@Test
+    @Test
     public void testResult()
     {
-        List<Bowler> listOfBowlers = new ArrayList<Bowler>();
-        FindOrderOfBallers findOrder = new FindOrderOfBallers();
+        Node[] listOfBowlers = new Node[4];
+        FindOrderOfBowlers findOrder = new FindOrderOfBowlers();
         
-        Bowler firstBowler = new Bowler("A", 7);
-        Bowler secondBowler = new Bowler("B", 3);
-        Bowler thirdBowler = new Bowler("C", 4);
-        Bowler fourthBowler = new Bowler("D", 1);
+        Node firstBowler = new Node("A", 7);
+        Node secondBowler = new Node("B", 3);
+        Node thirdBowler = new Node("C", 4);
+        Node fourthBowler = new Node("D", 1);
         
-        listOfBowlers.add(firstBowler);
-        listOfBowlers.add(secondBowler);
-        listOfBowlers.add(thirdBowler);
-        listOfBowlers.add(fourthBowler);
+        listOfBowlers[0] = firstBowler;
+        listOfBowlers[1] = secondBowler;
+        listOfBowlers[2] = thirdBowler;
+        listOfBowlers[3] = fourthBowler;
         
         int numberOfBowlers = 4;
         int totalBalls = 15;
@@ -34,41 +34,41 @@ public class TestFindOrderOfBowlers
         expectedListOfOrder.add("A");   
         expectedListOfOrder.add("A");     
         expectedListOfOrder.add("A");     
-        expectedListOfOrder.add("C");     
         expectedListOfOrder.add("A");     
         expectedListOfOrder.add("C");     
-        expectedListOfOrder.add("B");     
-        expectedListOfOrder.add("A");     
         expectedListOfOrder.add("C");     
         expectedListOfOrder.add("B");     
         expectedListOfOrder.add("A");     
-        expectedListOfOrder.add("D");     
+        expectedListOfOrder.add("A");     
         expectedListOfOrder.add("C");     
         expectedListOfOrder.add("B");     
+        expectedListOfOrder.add("B");     
         expectedListOfOrder.add("A");     
+        expectedListOfOrder.add("C");     
+        expectedListOfOrder.add("C");     
         
         assertEquals(expectedListOfOrder, namesInOrderActualList);    
     }
     
-	/**
+    /**
      * To test the order of bowlers such that runs scored by opponent are minimum with number of 
      * bowlers less than or equal to zero
      */
     @Test
     public void testResultWithNumberOfBowlersLessThanOne()
     {
-        List<Bowler> listOfBowlers = new ArrayList<Bowler>();
-        FindOrderOfBallers findOrder = new FindOrderOfBallers();
+    	Node[] listOfBowlers = new Node[4];
+    	FindOrderOfBowlers findOrder = new FindOrderOfBowlers();
         
-        Bowler firstBowler = new Bowler("A", 7);
-        Bowler secondBowler = new Bowler("B", 3);
-        Bowler thirdBowler = new Bowler("C", 4);
-        Bowler fourthBowler = new Bowler("D", 1);
+        Node firstBowler = new Node("A", 7);
+        Node secondBowler = new Node("B", 3);
+        Node thirdBowler = new Node("C", 4);
+        Node fourthBowler = new Node("D", 1);
         
-        listOfBowlers.add(firstBowler);
-        listOfBowlers.add(secondBowler);
-        listOfBowlers.add(thirdBowler);
-        listOfBowlers.add(fourthBowler);
+        listOfBowlers[0] = firstBowler;
+        listOfBowlers[1] = secondBowler;
+        listOfBowlers[2] = thirdBowler;
+        listOfBowlers[3] = fourthBowler;
         
         int numberOfBowlers = 0;
         int totalBalls = 15;
@@ -88,18 +88,18 @@ public class TestFindOrderOfBowlers
     @Test
     public void testResultWithNumberOfBallsLessThanOne()
     {
-        List<Bowler> listOfBowlers = new ArrayList<Bowler>();
-        FindOrderOfBallers findOrder = new FindOrderOfBallers();
+    	Node[] listOfBowlers = new Node[4];
+    	FindOrderOfBowlers findOrder = new FindOrderOfBowlers();
         
-        Bowler firstBowler = new Bowler("A", 7);
-        Bowler secondBowler = new Bowler("B", 3);
-        Bowler thirdBowler = new Bowler("C", 4);
-        Bowler fourthBowler = new Bowler("D", 1);
+        Node firstBowler = new Node("A", 7);
+        Node secondBowler = new Node("B", 3);
+        Node thirdBowler = new Node("C", 4);
+        Node fourthBowler = new Node("D", 1);
         
-        listOfBowlers.add(firstBowler);
-        listOfBowlers.add(secondBowler);
-        listOfBowlers.add(thirdBowler);
-        listOfBowlers.add(fourthBowler);
+        listOfBowlers[0] = firstBowler;
+        listOfBowlers[1] = secondBowler;
+        listOfBowlers[2] = thirdBowler;
+        listOfBowlers[3] = fourthBowler;
         
         int numberOfBowlers = 4;
         int totalBalls = 0;
@@ -119,18 +119,18 @@ public class TestFindOrderOfBowlers
     @Test
     public void testResultWithNumberOfBallsLessThanNumberOfBowlers()
     {
-        List<Bowler> listOfBowlers = new ArrayList<Bowler>();
-        FindOrderOfBallers findOrder = new FindOrderOfBallers();
+    	Node[] listOfBowlers = new Node[4];
+    	FindOrderOfBowlers findOrder = new FindOrderOfBowlers();
         
-        Bowler firstBowler = new Bowler("A", 7);
-        Bowler secondBowler = new Bowler("B", 3);
-        Bowler thirdBowler = new Bowler("C", 4);
-        Bowler fourthBowler = new Bowler("D", 1);
+        Node firstBowler = new Node("A", 7);
+        Node secondBowler = new Node("B", 3);
+        Node thirdBowler = new Node("C", 4);
+        Node fourthBowler = new Node("D", 1);
         
-        listOfBowlers.add(firstBowler);
-        listOfBowlers.add(secondBowler);
-        listOfBowlers.add(thirdBowler);
-        listOfBowlers.add(fourthBowler);
+        listOfBowlers[0] = firstBowler;
+        listOfBowlers[1] = secondBowler;
+        listOfBowlers[2] = thirdBowler;
+        listOfBowlers[3] = fourthBowler;
         
         int numberOfBowlers = 4;
         int totalBalls = 2;
