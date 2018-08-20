@@ -9,6 +9,8 @@ FROM
     ProductsInline
 WHERE
     Product.product_id = ProductsInline.product_id AND ProductsInline.product_status = 'active'
+GROUP BY 
+    Product.product_id
 ORDER BY (SELECT 
     order_date
 FROM
@@ -20,8 +22,9 @@ FROM
     Orders
 WHERE
     order_id = pid) DESC;
+    
 
-# To display the list of products which don't have any images
+# To display the list of products which don't have any images.
 
 SELECT 
     Product.product_id, Product.product_name
@@ -45,15 +48,20 @@ SELECT
 FROM
     Category AS c
         LEFT JOIN
-    Category AS pc ON c.parent_category_id = pc.category_id ORDER BY parent_category_name, c.category_name;
+    Category AS pc ON c.parent_category_id = pc.category_id
+ORDER BY parent_category_name,c.category_name;
 
 
 # Display Id, Title, Parent Category Title of all the leaf Categories (categories which are not parent of any other category)
 
 SELECT 
-    Category.category_id, Category.category_name
+    c.category_id,
+    c.category_name,
+    p.category_name As parent_category
 FROM
     Category AS c
+        LEFT JOIN
+    Category AS p ON c.parent_category_id = p.category_id
 WHERE
     c.category_id NOT IN (SELECT 
         parent_category_id
@@ -61,27 +69,28 @@ WHERE
         Category
     WHERE
         parent_category_id IS NOT NULL);
-         
+        
+
 # To display Product Title, Price & Description which falls into particular category Title (i.e. “Mobile”) 
 
 SELECT 
-    Product.product_name,
-    Product.product_price,
-    Product.product_description
+    p.product_name,
+    p.product_price,
+    p.product_description
 FROM
-    Product
+    Product AS p
 WHERE
-    Product.product_id IN (SELECT 
-        ProductCategory.product_id
-    FROM
-        ProductCategory
-    WHERE
-        category_id = (SELECT 
-            Category.category_id
-        FROM
-            Category
-        WHERE
-            category_name = 'Mobile Phones'));
+    p.product_id IN 
+    (SELECT 
+        pc.product_id
+FROM
+    ProductCategory AS pc
+INNER JOIN 
+    Category AS c
+ON
+    c.category_id = pc.category_id
+WHERE
+    c.category_name = 'Mobile Phones');
 
 # To display the list of Products whose Quantity on hand (Inventory) is under 50.
 
