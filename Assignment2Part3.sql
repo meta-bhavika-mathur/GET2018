@@ -11,21 +11,11 @@ LIMIT 50;
 # To display 10 most expensive Orders.
 
 SELECT 
-    pi.product_id, p.product_name, o.order_date, pi.order_id
+    o.order_date, o.order_id, o.total_bill
 FROM
     Orders AS o
-        LEFT JOIN
-    ProductsInline AS pi ON pi.order_id = o.order_id
-        LEFT JOIN
-    Product AS p ON p.product_id = pi.product_id
-WHERE
-    o.order_id IN (SELECT 
-        order_id
-    FROM
-        Orders
-    ORDER BY total_bill DESC
-    LIMIT 2);
-
+ORDER BY 
+    o.total_bill DESC LIMIT 10 ;
 
 # To display all the Orders which are placed more than 10 days old and one or more items 
 # from those orders are still not shipped.
@@ -42,7 +32,7 @@ FROM
         LEFT JOIN
     Product AS p ON pi.product_id = p.product_id
 WHERE
-    o.order_date < DATE_SUB(CURDATE(), INTERVAL 10 DAY) AND pi.product_status NOT IN ('Shipped');
+    o.order_date < DATE_SUB(CURDATE(), INTERVAL 10 DAY) AND pi.product_status NOT IN ('Shipped', 'Delivered');
 
 
 # To display list of shoppers which haven't ordered anything since last month.
