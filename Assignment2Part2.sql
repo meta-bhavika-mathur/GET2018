@@ -21,14 +21,14 @@ FROM
 WHERE
     order_id = pid) DESC;
 
-# To display the list of products which don't have any images.
+# To display the list of products which don't have any images
 
 SELECT 
     Product.product_id, Product.product_name
 from
     Product
 WHERE
-    Product.product_id IN (SELECT 
+    Product.product_id NOT IN (SELECT 
         product_id
     FROM
         Image
