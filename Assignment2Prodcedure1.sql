@@ -8,7 +8,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `GetMonthlyAverageSales`(month INT, 
 BEGIN
 
     SELECT 
-        SUM(pi.quantity_ordered * p.product_price) / DAY(LAST_DAY(o.order_date)) AS monthly_avg_sales, product_name 
+        SUM(pi.product_total) / DAY(LAST_DAY(o.order_date)) AS monthly_avg_sales, product_name 
     FROM 
         ProductsInline as pi
     LEFT JOIN 
