@@ -8,10 +8,10 @@ BEGIN
   
     DECLARE set_start_date DATE;
   
-    IF (start_date > end_date) THEN
+    IF (start_date < end_date) THEN
         RETURN start_date;
     ELSE
-        SET set_start_date = DATE_ADD(DATE_ADD(LAST_DAY('2017-07-14'), INTERVAL 1 DAY), INTERVAL - 1 MONTH);
+        SET set_start_date = DATE_ADD(DATE_ADD(LAST_DAY(end_date), INTERVAL 1 DAY), INTERVAL - 1 MONTH);
         RETURN set_start_date;
     END IF;
 END
