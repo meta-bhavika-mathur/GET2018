@@ -28,7 +28,7 @@ WHERE
     o.order_date > DATE_SUB(CURDATE(), INTERVAL 30 DAY)
 GROUP BY u.user_id
 ORDER BY o.total_bill DESC
-LIMIT 2;
+LIMIT 10;
 
 # To display top 20 Products which are ordered most in last 60 days along with numbers.
 
@@ -45,7 +45,7 @@ FROM
 WHERE
     o.order_date > DATE_SUB(CURDATE(), INTERVAL 60 DAY)
 GROUP BY pi.product_id
-ORDER BY pi.quantity_ordered DESC
+ORDER BY total_ordered DESC
 LIMIT 20;
 
 # To display monthly sales revenue of the StoreFront for last 6 months. It should display each month’s sale.
@@ -83,12 +83,7 @@ FROM
         LEFT JOIN
     Category AS c ON pc.category_id = c.category_id
 WHERE
-    c.category_id IN (SELECT 
-        category_id
-    FROM
-        Category
-    WHERE
-        category_name IN ('Formal'));
+    c.category_id IN ('Formal');
 
 # To display top 10 Items which were cancelled most.
 
