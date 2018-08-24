@@ -19,7 +19,7 @@ public class JDBCDemo
         
         System.out.println();
         
- /*       String url[] = new String[6];
+       String url[] = new String[6];
         
        
         url[1] = "C:image1.jpg";
@@ -29,11 +29,8 @@ public class JDBCDemo
         url[5] = "C:Image1455.jpg";
        
         
-        System.out.println(msq.addProductImages(5, url)); */
-    }
-}
-        
-   /*     System.out.println(msq.changeInactiveProductStatus());
+        System.out.println(msq.addProductImages(5, url)); 
+        System.out.println(msq.changeInactiveProductStatus());
         
         System.out.println();
         
@@ -42,4 +39,4 @@ public class JDBCDemo
             System.out.println(c.getName() + " " + c.getSubCategoryCount());
         }
     }
-}*/
+}
