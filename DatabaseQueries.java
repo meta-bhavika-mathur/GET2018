@@ -23,13 +23,9 @@ public class DatabaseQueries
     {
         List<Orders> orderList = new ArrayList<Orders>();
         
-        String query =          "SELECT o.order_id, o.order_date, o.total_bill" + 
-                                "FROM Orders AS o " + 
-                                "LEFT JOIN ProductsInline AS pi ON o.order-id = opr.orderID " + 
-                                "LEFT JOIN product AS p ON opr.productID = p.productID " + 
-                                "WHERE o.userID = ? AND o.overallStatus = ? " + 
-                                "GROUP BY o.orderID " + 
-                                "ORDER BY o.orderPlacingDate DESC ";
+        String query =  "SELECT o.order_id, o.order_date, o.user_id, pi.product_status, pi.product_total FROM Orders As o " +
+                        "LEFT JOIN ProductsInline AS pi ON o.order_id = pi.order_id " +
+                        "WHERE o.user_id = ? AND  pi.product_status = ? ORDER BY o.order_date DESC;" ;
         
         try (
                 
@@ -119,7 +115,7 @@ public class DatabaseQueries
     
     
     /**
-     * Updates product status to deleted 
+     * Updates product status as 'inactive' 
      * for all those products which were not ordered by any Shopper in last 1 year. 
      * @return number of products updated
      */
@@ -203,9 +199,8 @@ public class DatabaseQueries
                                    "FROM Category " + 
                                    "WHERE parent_category_id = ?";
 
-            PreparedStatement subCategoriesStatement = 
-                    connection.prepareStatement(subCategories);
-
+            PreparedStatement subCategoriesStatement =  connection.prepareStatement(subCategories);
+                   
             subCategoriesStatement.setInt(1, categoryID);
             ResultSet subCategoriesSet = subCategoriesStatement.executeQuery();
             
@@ -223,4 +218,3 @@ public class DatabaseQueries
         return count;
     }
 }
-
