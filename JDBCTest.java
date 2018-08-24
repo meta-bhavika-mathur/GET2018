@@ -14,10 +14,10 @@ public class JDBCTest
     @Test
     public void testGetAllOrdersByState()
     {
-        List<Orders> orderList= msq.getShippedOrdersOfUser(2, "shipped");
+        List<Orders> orderList= msq.getShippedOrdersOfUser(6, "Shipped");
         
-        int[] expectedOutput = {2, 1};
-        int i =0;
+        int[] expectedOutput = {4, 3};
+        int i = 0;
         for(Orders order: orderList)
         {
             int actualOutput = order.getID();
@@ -38,7 +38,7 @@ public class JDBCTest
         url[3] = "C:ImagePeterEngland78512.jpg";
         url[4] = "C:ImagePeterEngland99.jpg";
         
-        int expectedOutput = 3;
+        int expectedOutput = 5;
         int actualOutput = msq.addProductImages(productId, url);
         
         assertEquals(expectedOutput, actualOutput);
@@ -59,7 +59,7 @@ public class JDBCTest
     {
         List<Category> categoryList = msq.getTopCategoryWithChildrenCount();
         
-        String[] expectedOutput = {"electronics 4", "fashion 0"};
+        String[] expectedOutput = {"Electronics 4", "Clothing 4"};
                                    
         int i = 0;
         for(Category category: categoryList)
