@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>Login</title>
+		<link href = "css/effects.css" rel = "stylesheet">
+	</head>
+	<body>
+	<div id = "pageTop">
+		<table width = "100%">
+			<tr>
+				<td width = "50%" >
+					<img src = "images/capture.png" alt = "Image Not Available"  width = "75px" height = "80px" />
+				</td>
+				<td align = "right">
+					<a href = "HomePage.html">Home&nbsp;</a>
+					<a href = "">About&nbsp;</a>
+					<a href = "">Product&nbsp;</a>
+					<a href = "">Gallery&nbsp;</a>
+					<a href = "ContactUs.html">Contact&nbsp;&nbsp;&nbsp;</a>
+				</td> 
+				<td></td>
+			</tr>
+		</table>
+	</div>
+		
+	<div id = "pageMainContent">
+		<h1><center>Login</center></h1>
+		<form action = "UserProfile.html" method = "post" onsubmit = "return validateUser()">
+			<table align = "center" cellspacing = "15" style = "margin-top:30px">
+				<tr>
+					<td>Email</td>
+					<td><input type = "email" name = "email" placeholder = "Enter your email" id = "userEmail"  onblur = "validateEmail(this)" /></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type = "password" name = "password" placeholder = "Enter your password" id = "userPassword" onblur = "validatePassword(this)" /></td>
+				</tr>
+			</table>
+			<br><center><input type = "submit" id = "login" value = "Submit" /></center>
+		</form>
+		
+	</div>
+	<div id = "footer">
+	</div>
+	</body>
+	<script src = "js/validation.js"></script>
+</html>
