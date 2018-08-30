@@ -4,7 +4,7 @@
 		<link href = "css/effects.css" rel = "stylesheet">
 	</head>
 	<body>
-	<div id = "pageTop">
+	<div class = "pageTop">
 		<table width = "100%">
 			<tr>
 				<td width = "50%" >
@@ -22,24 +22,26 @@
 		</table>
 	</div>
 		
-	<div id = "pageMainContent">
+	<div class = "pageMainContent">
 		<h1><center>Login</center></h1>
 		<form action = "UserProfile.html" method = "post" onsubmit = "return validateUser()">
 			<table align = "center" cellspacing = "15" style = "margin-top:30px">
 				<tr>
 					<td>Email</td>
-					<td><input type = "email" name = "email" placeholder = "Enter your email" id = "userEmail"  onblur = "validateEmail(this)" /></td>
+					<td><input type = "text" name = "email" placeholder = "Enter your email" id = "userEmail"  onblur = "validateEmail(this)" />
+						<p id = "loginEmailError" style = "font-size:12px"></p>
+					</td>
+					
 				</tr>
 				<tr>
 					<td>Password</td>
-					<td><input type = "password" name = "password" placeholder = "Enter your password" id = "userPassword" onblur = "validatePassword(this)" /></td>
+					<td><input type = "password" name = "password" placeholder = "Enter your password" id = "userPassword" onblur = "validatePassword(this)" />
+					<p id = "loginPasswordError" style = "font-size:12px"></p>
+					</td>
 				</tr>
 			</table>
-			<br><center><input type = "submit" id = "login" value = "Submit" /></center>
-		</form>
-		
-	</div>
-	<div id = "footer">
+			<br><center><input type = "submit" id = "submitLoginForm" value = "Login" /></center>
+		</form>	
 	</div>
 	</body>
 	<script src = "js/validation.js"></script>
