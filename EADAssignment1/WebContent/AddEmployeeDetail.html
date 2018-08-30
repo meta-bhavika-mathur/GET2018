@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head><title>Add Employee Detail</title></head>
+	<body>
+		<div id = "pageMainContent" align = "center" width = "100%">
+			<h1><center>Add Employee Detail</center></h1>
+			<form action = 'EmployeeServlet' onsubmit = "return validateForm()">
+				<table cellpadding = "15">
+					<tr>
+						<td>First Name</td>
+						<td><input type = "text" name = "firstName" placeholder = "Enter first name" id = "firstName" onblur = "validateName(this)" />
+							<div id = "firstNameError" style = "font-size:12px"></div>
+						</td>
+					</tr>
+					<tr>
+						<td>Last Name</td>
+						<td><input type = "text" name = "lastName" placeholder = "Enter last name" id = "lastName" onblur = "validateName(this)" />
+							 <div id = "lastNameError" style = "font-size:12px"></div></td>
+					</tr>
+					<tr>
+						<td>Email</td>
+						<td><input type = "text" name = "email" placeholder = "Enter email id" id = "email" onblur = "validateEmail(this)" />
+							<div id = "emailError" style = "font-size:12px"></div></td>
+					</tr>
+					<tr>
+						<td>Age</td>
+						<td><input type = "number" name = "age" placeholder = "Enter age" id = "age" onblur = "validateAge(this)"  />
+							<div id = "ageError" style = "font-size:12px"></div></td>
+					</tr>
+				</table>
+				<input type = "submit" id = "login" value = "Submit" />
+			</form>
+		</div>
+		<script src = "ValidateForm.js"></script>
+	</body>
+</html>
