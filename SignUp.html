@@ -3,10 +3,9 @@
 		<title>Sign Up</title>
 		<link href = "css/effects.css" rel = "stylesheet">
 		
-	</head>
-	
-	<body>
-		<div id = "pageTop">
+	</head>	
+	<body bgcolor = "#fcffc8">
+		<div class = "pageTop">
 			<table width = "100%">
 				<tr>
 					<td width = "50%" >
@@ -24,33 +23,41 @@
 			</table>
 		</div>
  
-		<div id = "pageMainContent"> 
+		<div class = "pageMainContent"> 
 			<h1><center>Sign Up!</center></h1>
-			<form action = "UserProfile.html" method = "post" onsubmit = "return validateForm()">
-				<table align = "center" cellpadding = "15">
+			<form action = "Login.html" method = "post" onsubmit = "return validateForm()">
+				<table align = "center" cellpadding = "10">
 					<tr>
 						<td>First Name</td>
-						<td><input type = "text" name = "firstName" placeholder = "Enter your first name" id = "first_name" onblur = "validateName(this)" /></td>		
+						<td><input type = "text" name = "firstName" placeholder = "Enter your first name" id = "first_name" onblur = "validateName(this)" />		
+							<p id = "firstNameError" style = "font-size:12px"></p>
+						</td>
 					</tr>
 					<tr>
 						<td>Last Name</td>
-						<td><input type = "text" name = "lastName" placeholder = "Enter your second name" id = "last_name" onblur = "validateName(this)" /></td>
+						<td><input type = "text" name = "lastName" placeholder = "Enter your second name" id = "last_name" onblur = "validateName(this)" />
+							<p id = "secondNameError" style = "font-size:12px"></p>
+						</td>
 					</tr>
 					<tr>
 						<td>Email</td>
-						<td><input type = "email" name = "email" placeholder = "Enter your email" id = "email"  onblur = "validateEmail(this)" /></td>
+						<td><input type = "text" name = "email" placeholder = "Enter your email" id = "email"  onblur = "validateEmail(this)" />
+							 <p id = "emailError" style = "font-size:12px"></p></td>
 					</tr>
 					<tr>
 						<td>Password</td>
-						<td><input type = "password" name = "password" placeholder = "Enter your password"  id = "password" onblur = "validatePassword(this)" /></td>
+						<td><input type = "password" name = "password" placeholder = "Enter your password"  id = "password" onblur = "validatePassword(this)" />
+						    <p id = "passwordError" style = "font-size:12px"></p></td>
 					</tr>
 					<tr>
 						<td>Confirm Password</td>
-						<td><input type = "password" name = "confirmPassword" placeholder = "Retype password" id = "confirm_password" onblur = "validateConfirmPassword(this)" /></td>
+						<td><input type = "password" name = "confirmPassword" placeholder = "Retype password" id = "confirm_password" onblur = "validateConfirmPassword(this)" />
+							<p id = "confirmPasswordError" style = "font-size:12px"></p></td>
 					</tr>
 					<tr>
 						<td>Contact Number</td>
-						<td><input type = "text" name = "contact" placeholder = "Enter mobile number" max = "10"  id = "contact_number" onblur = "validatePhoneNumber(this)" /></td>
+						<td><input type = "text" name = "contact" placeholder = "Enter mobile number" max = "10"  id = "contact_number" onblur = "validatePhoneNumber(this)" />
+							<p id = "contactNumberError" style = "font-size:12px"></p></td>
 					</tr>
 					<tr>
 						<td>Company</td>
@@ -68,6 +75,5 @@
 		</form>
 		</div>
 	</body>
-	<script src = "js/validation.js"></script>
-	
+	<script src = "js/validation.js"></script>	
 </html>
