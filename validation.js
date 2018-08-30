@@ -45,8 +45,8 @@ function validateEmail(object)
 		return false;
 	}
 	var emailParts = email.split('@'),
-        emailName = emailParts[0],
-        emailDomain = emailParts[1],
+	emailName = emailParts[0],
+	emailDomain = emailParts[1],
         emailDomainParts = emailDomain.split('.'),
         validChars = '0123456789abcdefghijklmnopqrstuvwxyz._-';
 		
