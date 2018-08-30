@@ -2,11 +2,12 @@ body {
     background-color: white;
 }
 
-#pageTop
+.pageTop
 {
 	background-color: #A9A9A9;
-	margin: auto;
+	margin: 0px;
     border: 1.5px solid red;
+	
 }
 
 a{
@@ -15,19 +16,26 @@ a{
 	font-weight : bold;
 	color: white;
 	border-radius: 20px;
-    background: orange;
-    padding: 20px;
-    width: 150px;
-    height: 100px;
+    	background: orange;
+    	padding: 20px;
+    	width: 150px;
+    	height: 100px;
 	box-shadow: 5px 5px grey;
 }
 
-#pageMainContent
+.pageMainContent
 {
+	margin: 0px;
 	font-family : Arial;
 	background-color: #fcffc8;
 }
 
+.pageFooter
+{
+	margin: 0px;
+	border-top: 2px solid grey;
+	background-color: #fcffc8;
+}
 #submitButton:hover 
 {
 	background-color: orange;
