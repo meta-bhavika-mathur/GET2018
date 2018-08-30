@@ -224,13 +224,20 @@ function validateUser()
 	var email = document.getElementById("userEmail");
 	var password = document.getElementById("userPassword"); 
 	
+	debugger;
 	if(validateEmail(email) && validatePassword(password))
 	{
-		return true;
+		if(email == 'bhavika.mathur@metacube.com' && password == 'Abcdefg12#')
+			return true;
+		else
+		{
+			alert("Incorrect email id or password!");
+			return false;
+		}
 	}	
 	else
 	{
-		alert("Incorrect username or password!");
+		alert("Invalid username or password!");
 		return false;
 	}	
 }
