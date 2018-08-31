@@ -224,10 +224,9 @@ function validateUser()
 	var email = document.getElementById("userEmail");
 	var password = document.getElementById("userPassword"); 
 	
-	debugger;
 	if(validateEmail(email) && validatePassword(password))
 	{
-		if(email == 'bhavika.mathur@metacube.com' && password == 'Abcdefg12#')
+		if(email.value == 'bhavika.mathur@metacube.com' && password.value == 'Abcdefg12#')
 			return true;
 		else
 		{
