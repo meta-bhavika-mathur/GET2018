@@ -38,7 +38,8 @@ function validateEmail(object)
 {
 	var email = document.getElementById(object.id).value;
 	
-	if ( email.length < 6 || email.indexOf("@") == 0 || email.indexOf("@") == email.length - 1 )
+	// If length is less than 6 or '@' character is not present or loacated at the start or end of email
+	if ( email.length < 6 || email.indexOf("@") == 0 || email.indexOf("@") == email.length - 1 || email.indexOf("@") == -1)
 	{
 		object.style.borderColor = "red";
 		document.getElementById('emailError').innerHTML = "*Invalid Email!";
