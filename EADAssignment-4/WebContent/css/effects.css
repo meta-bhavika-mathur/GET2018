@@ -1,0 +1,50 @@
+@CHARSET "ISO-8859-1";
+body {
+    background-color: white;
+}
+
+.pageTop
+{
+	
+	background-color: #A9A9A9;
+	margin: 0px;
+    border: 1.5px solid red;
+	
+}
+
+a{
+	font-family : Arial;
+	text-decoration: none;	
+	font-weight : bold;
+	color: white;
+	border-radius: 20px;
+    background: orange;
+    padding: 20px;
+    width: 150px;
+    height: 100px;
+	box-shadow: 5px 5px grey;
+}
+
+.pageMainContent
+{
+	margin: 0px;
+	font-family : Arial;
+}
+
+.pageFooter
+{
+	margin: 0px;
+	border-top: 2px solid grey;
+}
+#submitButton:hover 
+{
+	background-color: orange;
+}
+#submitButton
+{
+	width : 100px;
+	height : 35px;
+	font-weight : bold;
+	border-radius: 15px;
+	background-color: #A9A9A9;
+}
