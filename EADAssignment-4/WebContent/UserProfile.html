@@ -1,10 +1,63 @@
-<!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
+	<head>
+		<title>User profile</title>
+		<link href = "css/effects.css" rel = "stylesheet">
+	</head>
+	
+	<body>
+		<div>
+			<div class = "topContainer" >
+				<div class = "logo"><img src = "images/newimage.png" alt = "Image Not Available" width = "75px" height = "85px"></div>
+				<div class = "menu" >
+					<span><input type = "button" value = "Logout" onclick = "window.open('HomePage.html')" /></span>				
+					<span><input type = "label" value = "Welcome Bhavika Mathur!" /></span>
+					<span>
+						<label for = "image">
+							<input type = "file" name = "image" id = "image" style = "display:none;"/>
+							<img id = "profileImage" src = "images/defaultProfileImage.png" alt = "Image not found!" accept = "image/*" />
+						</label>
+					</span>
+				</div> 		
+			</div>
+		</div>
+		
+		<div class = "pageMainContent" > 
+		<h1>Welcome Bhavika Mathur!</h1>
+		<font>Your information is:-</font>           
+		<form>
+			<table align = "center"  cellpadding = "15">
+				<tr>
+					<td>First Name</td>
+					<td><input type = "text" name = "firstName" value = "Bhavika" disabled = "true"/></td>		
+				</tr>
+				<tr>
+					<td>Last Name</td>
+					<td><input type = "text" name = "lastName" value = " Mathur" disabled = "true"/></td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td><input type = "email" name = "email" value = "bhavika.mathur@metacube.com" disabled = "true"/></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type = "password" name = "password" value = "********" disabled = "true"/></td>
+				</tr>
+				<tr>
+					<td>Contact Number</td>
+					<td><input type = "text" name = "contact" value = "9898989878" disabled = "true"> </td>
+				</tr>
+				<tr>
+					<td>Company</td>
+					<td><input type = "text" name = "contact" value = "Metacube" disabled = "true"> </td>
+				</tr>
+				
+				<tr colspan = "2">
+					<td></td>
+					
+				</tr>	
+			</table>
+			<center><input type = "button" value = "Edit Information" style = "align:center" onclick = "window.open('EditProfileInfo.html')"/></center>
+		</form>
+		</div>
+	</body>
 </html>

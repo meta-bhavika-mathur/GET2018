@@ -8,9 +8,11 @@ import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.controller.UserController;
 import com.dao.DatabaseQueries;
@@ -19,7 +21,7 @@ import com.model.User;
 /**
  * Servlet implementation class LoginServlet
  */
-
+@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet
 {
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException
@@ -30,7 +32,7 @@ public class LoginServlet extends HttpServlet
         String userEmail = req.getParameter("email");
         String userPassword = req.getParameter("password");
        
-        System.out.println(userEmail);
+        System.out.println("Login Servlet:" + " " + userEmail);
         
         DatabaseQueries query = new DatabaseQueries();
     
@@ -40,20 +42,23 @@ public class LoginServlet extends HttpServlet
         
         if(result)
         {
+            
+            System.out.println("Login Successful!");
+            
+            //generate a new session
+            HttpSession newSession = req.getSession(true);
+            newSession.setAttribute("email", userEmail);
+            
+            System.out.println("Inside login successful!");
             out.println("<script>alert(\"Login Successful!\")</script>");
-            RequestDispatcher requestdispatch = req.getRequestDispatcher("UserProfile.html");
-            requestdispatch.include(req, res);
-        }
+            res.sendRedirect("./UserProfile");
+        } 
         else
         {
-            out.println("<script>alert(\"Error while logining in!\")</script>");
-            RequestDispatcher requestdispatch = req.getRequestDispatcher("index.html");
+            RequestDispatcher requestdispatch = getServletContext().getRequestDispatcher("/UserLogin.html");
+            out.println("<script>alert('Either username or password is wrong!')</script>");
             requestdispatch.include(req, res);
-        }
 
-        
-         
-        
+        }        
     }
-
 }

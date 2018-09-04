@@ -31,7 +31,15 @@ public class UserFacade
 
     public boolean login(String userEmail, String userPassword) 
     {
+        System.out.println("Inside facade");
         boolean result = userDao.loginUser(userEmail, userPassword);
+        return result;
+    }
+
+    public User getUserInfo(String userEmail)
+    {
+        System.out.println("Inside facade");
+        User result = userDao.getUserInfo(userEmail);
         return result;
     }
 }

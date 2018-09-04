@@ -23,7 +23,15 @@ public class UserController
 
     public boolean loginUser(String userEmail, String userPassword)
     {
+        System.out.println("Inside controller");
         boolean result = userFacade.login(userEmail, userPassword);
+        return result;
+    }
+
+    public User getUser(String userEmail) 
+    {
+        System.out.println("Inside get user");
+        User result = userFacade.getUserInfo(userEmail);
         return result;
     }
 
