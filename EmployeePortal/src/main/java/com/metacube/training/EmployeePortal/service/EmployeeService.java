@@ -9,7 +9,6 @@ public class EmployeeService
     {
         SkillDAO skillDAO = new SkillDAO();
         boolean isAdded =  skillDAO.add(skill);
-       // advertisementOperations.dispose();
         return isAdded;
     }
 }
