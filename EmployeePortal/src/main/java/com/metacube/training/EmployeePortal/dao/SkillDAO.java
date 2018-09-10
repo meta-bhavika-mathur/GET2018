@@ -4,9 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
-
 import com.metacube.training.EmployeePortal.model.Skills;
 
+// To perform operations on skill Database
 public class SkillDAO implements BaseDAO<Skills>{
 
     private Connection connection;
@@ -20,7 +20,7 @@ public class SkillDAO implements BaseDAO<Skills>{
     public boolean add(Skills skill) 
     {
         int projectAdded = 0;
-        String query = Queries.addSkill;
+        String query = Queries.ADD_SKILL;
         
         try
         (
@@ -66,7 +66,4 @@ public class SkillDAO implements BaseDAO<Skills>{
         // TODO Auto-generated method stub
         return false;
     }
-
-  
-
 }
