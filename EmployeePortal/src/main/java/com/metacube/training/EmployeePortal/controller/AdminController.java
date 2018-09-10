@@ -1,5 +1,7 @@
 package com.metacube.training.EmployeePortal.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import com.metacube.training.EmployeePortal.model.JobTitle;
 import com.metacube.training.EmployeePortal.model.Project;
 import com.metacube.training.EmployeePortal.model.Skills;
 import com.metacube.training.EmployeePortal.service.JobService;
+import com.metacube.training.EmployeePortal.service.ProjectService;
 import com.metacube.training.EmployeePortal.service.SkillService;
 
 @Controller
@@ -34,21 +37,35 @@ public class AdminController
         return "redirect:/admin/dashboard";
     }
 
-    @RequestMapping(value = "/addProject", method = RequestMethod.GET)
+    @RequestMapping(value = "/project", method = RequestMethod.GET)
     public String addProject()
     {
         return "admin/project";
     }
 
-    /*@RequestMapping(value = "/addProject", method = RequestMethod.POST)
-    public String addProject(
-            @RequestParam(value = "projectDescription") String projectDescription,
-            // @RequestParam(value="projectStartDate") Date projectStartDate,
-            // @RequestParam(value="projectEndDate") Date projectEndDate,
-           // @RequestParam(value = "upload") String imagePath)
+    @RequestMapping(value = "/project", method = RequestMethod.POST)
+    public ModelAndView addProject(@RequestParam(value = "projectDescription") String projectDescription,
+                             @RequestParam(value = "projectStartDate") String projectStartDate,
+                             @RequestParam(value = "projectEndDate") String projectEndDate,
+                             @RequestParam(value = "imageUrl") String imageUrl) throws ParseException
     {
-        return "redirect:/admin/dashboard";
-    }*/
+        SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd");  
+        Date date1, date2;
+        try 
+        {
+            date1 = formatter1.parse(projectStartDate);
+            date2 = formatter1.parse(projectEndDate); 
+            Project newProject = new Project(projectDescription, date1, date2, imageUrl);
+            
+            ProjectService projectService = new ProjectService();
+            projectService.addProjectDetails(newProject);     
+        } 
+        catch (ParseException e) 
+        {          
+            e.printStackTrace();
+        } 
+        return new ModelAndView("redirect:/admin/dashboard"); 
+    }
 
     @RequestMapping(value = "/addJob", method = RequestMethod.GET)
     public String addJob()
@@ -97,12 +114,12 @@ public class AdminController
             @RequestParam(value = "firstName") String firstName,
             @RequestParam(value = "middleName") String middleName,
             @RequestParam(value = "lastName") String lastName,
-            // @RequestParam(value="dateOfBirth") Date dateOfBirth,
-            // @RequestParam(value="gender") String gender,
-            // @RequestParam(value="dateOfJoining") Date dateOfJoining,
-            // @RequestParam(value="reportingManager") String reportingManager,
-            // @RequestParam(value="teamLead") String teamLead,
-            // @RequestParam(value="projectId") String projectId,
+            @RequestParam(value = "dateOfBirth") Date dateOfBirth,
+            @RequestParam(value = "gender") String gender,
+            @RequestParam(value = "dateOfJoining") Date dateOfJoining,
+            @RequestParam(value = "reportingManager") String reportingManager,
+            @RequestParam(value = "teamLead") String teamLead,
+            @RequestParam(value = "projectId") String projectId,
             @RequestParam(value = "email") String email,
             @RequestParam(value = "password") String password)
     {
