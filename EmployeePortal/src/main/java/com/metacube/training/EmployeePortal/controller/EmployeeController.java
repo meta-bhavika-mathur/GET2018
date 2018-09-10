@@ -1,5 +1,7 @@
 package com.metacube.training.EmployeePortal.controller;
 
+import java.util.Date;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,12 +36,12 @@ public class EmployeeController
             @RequestParam(value = "firstName") String firstName,
             @RequestParam(value = "middleName") String middleName,
             @RequestParam(value = "lastName") String lastName,
-            // @RequestParam(value="dateOfBirth") Date dateOfBirth,
-            // @RequestParam(value="gender") String gender,
-            // @RequestParam(value="dateOfJoining") Date dateOfJoining,
-            // @RequestParam(value="reportingManager") String reportingManager,
-            // @RequestParam(value="teamLead") String teamLead,
-            // @RequestParam(value="projectId") String projectId,
+            @RequestParam(value = "dateOfBirth") Date dateOfBirth,
+            @RequestParam(value = "gender") String gender,
+            @RequestParam(value = "dateOfJoining") Date dateOfJoining,
+            @RequestParam(value = "reportingManager") String reportingManager,
+            @RequestParam(value = "teamLead") String teamLead,
+            @RequestParam(value = "projectId") String projectId,
             @RequestParam(value = "email") String email,
             @RequestParam(value = "password") String password)
     {
@@ -70,6 +72,4 @@ public class EmployeeController
     {
         return "home";
     }
-
-  
 }
