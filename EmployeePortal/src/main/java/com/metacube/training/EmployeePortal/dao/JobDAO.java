@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 import com.metacube.training.EmployeePortal.model.JobTitle;
 
+// Class to perform operations on JobTitle database
 public class JobDAO implements BaseDAO<JobTitle>
 {
     private Connection connection;
@@ -15,11 +16,12 @@ public class JobDAO implements BaseDAO<JobTitle>
         connection = JDBCConnectivity.getMysqlConnection("root", "1234", "EmployeePortal");
     }
     
+    // To add job title
     @Override
     public boolean add(JobTitle job) 
     {
         int jobAdded = 0;
-        String query = Queries.addJobTitle;
+        String query = Queries.ADD_JOB_TITLE;
         
         try
         (
@@ -65,9 +67,4 @@ public class JobDAO implements BaseDAO<JobTitle>
         // TODO Auto-generated method stub
         return false;
     }
-    
-  
-
 }
-
-
