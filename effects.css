@@ -1,0 +1,57 @@
+body 
+{
+    background-color: white;
+}
+
+.topContainer
+{
+	background-color: #A9A9A9;
+	border: 1.5px solid red; 
+	height: 13.25%;
+}
+
+.topContainer > .menu 
+{
+	width: 49%;
+	float: right; 
+	height: 80px; 
+	margin-top: 18px;
+}
+
+.topContainer > .menu a
+{
+	font-family: Arial;
+	padding: 12px;
+	text-decoration: none;
+	font-weight: bold;
+	color: white;
+	border-radius: 20px;
+	background: orange;
+	margin-right: 8px;
+	float: right;
+	box-shadow: 5px 5px grey;
+}
+
+.pageMainContent
+{
+	margin: 0px;
+	font-family : Arial;
+}
+
+.pageFooter
+{
+	margin: 0px;
+	border-top: 2px solid grey;
+}
+#submitButton:hover 
+{
+	background-color: orange;
+}
+#submitButton
+{
+	width : 100px;
+	height : 35px;
+	font-weight : bold;
+	border-radius: 15px;
+	background-color: #A9A9A9;
+}

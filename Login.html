@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title>Login</title>
+		<link href="css/newEffects.css" rel="stylesheet">
+	</head>
+	<body>
+		<div>
+			<div class = "topContainer" >
+				<div style = "float: left;width: 50%;"><img src = "images/capture.png" alt = "Image Not Available" width = "75px" height = "80px"></div>
+				<div class = "menu" >
+					<a href = "HomePage.html">
+						<span>Contact&nbsp;</span>
+					</a>
+					<a href = "#">
+						<span>Gallery&nbsp;</span>
+					</a>
+					<a href = "#">
+						<span>Product&nbsp;</span>
+					</a>
+					<a href = "#">
+						<span>About&nbsp;</span>
+					</a>
+					<a href = "ContactUs.html">
+						<span>Home&nbsp;</span>
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class = "pageMainContent" width = "100%">
+			<h1><center>Login</center></h1>
+			<form action = "UserProfile.html" method = "post" onsubmit = "return validateUser()">
+				<table align = "center" cellspacing = "15" style = "margin-top:30px">
+					<tr>
+						<td>Email</td>
+						<td><input type = "text" name = "email" placeholder = "Enter your email" id = "userEmail" onblur = "validateEmail(this)">
+							<p id = "emailError" style = "font-size:12px"></p>
+						</td>	
+					</tr>
+					<tr>
+						<td>Password</td>
+						<td><input type = "password" name = "password" placeholder = "Enter your password" id = "userPassword" onblur = "validatePassword(this)">
+							<p id = "passwordError" style = "font-size:12px"></p>
+						</td>
+					</tr>
+				</table>
+				<br><center><input type = "submit" id = "submitLoginForm" value = "Login"></center>
+			</form>	
+		</div>
+		<script src = "js/validation.js"></script>
+	</body>
+</html>
