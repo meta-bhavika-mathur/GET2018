@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head><title>Search Employee</title></head>
+	<body>
+		<div align = "center" width = "100%">
+			<h2>Search Employee</h2>
+			<form action = 'SearchEmployeeServlet' onsubmit = "return validateSearchForm()">
+				<table cellpadding = "15">
+					<tr>
+						<td>Enter FirstName:</td>
+						<td><input type = "text" name = "firstName" placeholder = "Enter fisrt name" id = "firstName" onblur = "validateName(this)" />
+						<div id = "firstNameError" style = "font-size:12px"></div></td>
+					</tr>
+					<tr>
+						<td>Enter Last Name:</td>
+						<td><input type = "text" name = "lastName" placeholder = "Enter last name" id = "lastName" onblur = "validateName(this)"  />
+							<div id = "lastNameError" style = "font-size:12px"></div></td>
+					</tr>
+				</table>
+				<input type = "submit" id = "search" value = "Search" />
+			</form>
+		</div>
+	<script src = "ValidateForm.js"></script>
+	</body>
+</html>
