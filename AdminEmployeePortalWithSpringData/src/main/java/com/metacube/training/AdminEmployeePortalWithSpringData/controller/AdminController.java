@@ -1,5 +1,7 @@
 package com.metacube.training.AdminEmployeePortalWithSpringData.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +27,7 @@ import com.metacube.training.AdminEmployeePortalWithSpringData.service.SkillServ
 @RequestMapping("/admin")
 public class AdminController
 {
+
     @Autowired
     private ProjectService projectService;
     @Autowired
@@ -39,8 +42,7 @@ public class AdminController
     private JobDetailsService jobDetailsService;
 
     /**
-     * To goto admin login window
-     * @return
+     * To go to admin login window
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login()
@@ -65,9 +67,8 @@ public class AdminController
     }
 
     /**
-     * To goto add project form
+     * To go to add project form
      * @param model
-     * @return
      */
     @RequestMapping(value = "/addProject", method = RequestMethod.GET)
     public String addProject(Model model)
@@ -83,25 +84,20 @@ public class AdminController
     @RequestMapping(value = "/addProject", method = RequestMethod.POST)
     public String addProject(@ModelAttribute("project") Project project)
     {
-    	if (project.getId() == 0 && project != null)
+        if (project.getId() == 0 && project != null)
         {
             projectService.create(project);
         }
-    	return "redirect:/admin/showAllProjects";
-    	/*if (project.getId() == 0 && project != null)
-        {
-            projectService.create(project);
-        } else
+        else
         {
             projectService.update(project);
         }
-        return "redirect:/admin/showAllProjects";*/
+        return "redirect:/admin/showAllProjects";
     }
 
     /**
-     * To delete a project
-     * @param id, project id of the project to be deleted
-     * @return
+     * To delete project
+     * @param id, id of project to be deleted
      */
     @RequestMapping(value = "/deleteProject", method = RequestMethod.POST)
     public String deleteProject(@RequestParam(value = "id") String id)
@@ -111,7 +107,7 @@ public class AdminController
     }
 
     /**
-     * To shows all projects
+     * To display all projects
      * @param model
      */
     @RequestMapping(value = "/showAllProjects", method = RequestMethod.GET)
@@ -122,10 +118,9 @@ public class AdminController
     }
 
     /**
-     * To update project information
+     * To update project details
      * @param projectId
      * @param model
-     * @return
      */
     @RequestMapping(value = "/updateProject", method = RequestMethod.GET)
     public String updateProject(@RequestParam(value = "id") int projectId,
@@ -137,9 +132,8 @@ public class AdminController
     }
 
     /**
-     * To goto add employee form 
+     * To go to add employee form
      * @param model
-     * @return
      */
     @RequestMapping(value = "/addEmployee", method = RequestMethod.GET)
     public String addEmployee(Model model)
@@ -149,25 +143,23 @@ public class AdminController
     }
 
     /**
-     * To add employee
-     * @param employee
+     * To add new employee information
+     * @param employee, employee to be inserted
      */
     @RequestMapping(value = "/addEmployee", method = RequestMethod.POST)
     public String addEmployee(@ModelAttribute("employee") Employee employee)
     {
         if (employee.getId() == 0 && employee != null)
-        {
             employeeService.create(employee);
-        } else
-        {
+        else
             employeeService.update(employee);
-        }
+
         return "redirect:/admin/showAllEmployees";
     }
 
     /**
-     * To delete an employee record
-     * @param id
+     * To delete employee record
+     * @param id, id of the project to be deleted
      */
     @RequestMapping(value = "/deleteEmployee", method = RequestMethod.POST)
     public String deleteEmployee(@RequestParam(value = "id") String id)
@@ -177,9 +169,8 @@ public class AdminController
     }
 
     /**
-     * To show all employees
+     * To display all employees 
      * @param model
-     * @return
      */
     @RequestMapping(value = "/showAllEmployees", method = RequestMethod.GET)
     public String showAllEmployees(Model model)
@@ -190,12 +181,12 @@ public class AdminController
 
     /**
      * To update employee
-     * @param employeeId
+     * @param employeeId, id of the e mployee whose information is to be updated
      * @param model
-     * @return
      */
     @RequestMapping(value = "/updateEmployee", method = RequestMethod.GET)
-    public String updateEmployee(@RequestParam(value = "id") int employeeId, Model model)
+    public String updateEmployee(@RequestParam(value = "id") int employeeId,
+            Model model)
     {
         Employee employee = employeeService.getById(employeeId);
         model.addAttribute("employee", employee);
@@ -203,7 +194,7 @@ public class AdminController
     }
 
     /**
-     * To go to add job form
+     * To go to add job information form
      * @param model
      */
     @RequestMapping(value = "/addJob", method = RequestMethod.GET)
@@ -214,26 +205,23 @@ public class AdminController
     }
 
     /**
-     * To adds job
-     * @param job
+     * To add new job information
+     * @param job, job to be inserted in the table
      */
     @RequestMapping(value = "/addJob", method = RequestMethod.POST)
     public String addJob(@ModelAttribute("job") Job job)
     {
         if (job.getId() == 0 && job != null)
-        {
             jobService.create(job);
-        } else
-        {
+        else
             jobService.update(job);
-        }
+
         return "redirect:/admin/showAllJobs";
     }
 
     /**
-     * To delete job record
-     * @param id, id of then job to be deleted
-     * @return
+     * To delete job from the table
+     * @param id, id of the job to be deleted
      */
     @RequestMapping(value = "/deleteJob", method = RequestMethod.POST)
     public String deleteJob(@RequestParam(value = "id") String id)
@@ -243,7 +231,7 @@ public class AdminController
     }
 
     /**
-     * To display list of jobs
+     * To show all jobs
      * @param model
      */
     @RequestMapping(value = "/showAllJobs", method = RequestMethod.GET)
@@ -254,8 +242,8 @@ public class AdminController
     }
 
     /**
-     * To updates job information
-     * @param jobId
+     * To update job information
+     * @param jobId, id of the job whose information has to be updated
      * @param model
      */
     @RequestMapping(value = "/updateJob", method = RequestMethod.GET)
@@ -267,9 +255,8 @@ public class AdminController
     }
 
     /**
-     * To goto add skill form
+     * To go to add skill page
      * @param model
-     * @return
      */
     @RequestMapping(value = "/addSkill", method = RequestMethod.GET)
     public String addSkill(Model model)
@@ -279,26 +266,23 @@ public class AdminController
     }
 
     /**
-     * To add skill
+     * To add new skill
      * @param skill
      */
     @RequestMapping(value = "/addSkill", method = RequestMethod.POST)
     public String addSkill(@ModelAttribute("skill") Skill skill)
     {
         if (skill.getId() == 0 && skill != null)
-        {
             skillService.create(skill);
-        } else
-        {
+        else
             skillService.update(skill);
-        }
+        
         return "redirect:/admin/showAllSkills";
     }
 
     /**
-     * To delete skill record
-     * @param id
-     * @return
+     * To delete skill
+     * @param id, id of the skill to be deleted
      */
     @RequestMapping(value = "/deleteSkill", method = RequestMethod.POST)
     public String deleteSkill(@RequestParam(value = "id") String id)
@@ -308,7 +292,7 @@ public class AdminController
     }
 
     /**
-     * To show all skills
+     * To shows all skills
      * @param model
      */
     @RequestMapping(value = "/showAllSkills", method = RequestMethod.GET)
@@ -319,12 +303,13 @@ public class AdminController
     }
 
     /**
-     * To updates skill
-     * @param skillId
+     * To update skill
+     * @param skillId, id of the skill whose information is to be updated
      * @param model
      */
     @RequestMapping(value = "/updateSkill", method = RequestMethod.GET)
-    public String updateSkill(@RequestParam(value = "id") int skillId, Model model)
+    public String updateSkill(@RequestParam(value = "id") int skillId,
+            Model model)
     {
         Skill skill = skillService.getById(skillId);
         model.addAttribute("skill", skill);
@@ -335,6 +320,7 @@ public class AdminController
      * Shows list of employees with a particular skill
      * @param skillId
      * @param model
+     * @return
      */
     @RequestMapping(value = "/getEmployeeListWithSameSkill", method = RequestMethod.POST)
     public String getEmployeeList(@RequestParam(value = "id") int skillId,
@@ -346,7 +332,7 @@ public class AdminController
     }
 
     /**
-     * goto addSkillToEmployee
+     * To go to addSkillToEmployee
      * @param model
      * @return
      */
@@ -362,7 +348,6 @@ public class AdminController
     /**
      * Adds skill to employee 
      * @param employeeSkillMapping
-     * @return
      */
     @RequestMapping(value = "/addSkillToEmployee", method = RequestMethod.POST)
     public String addSkillToEmployee(
@@ -373,7 +358,7 @@ public class AdminController
     }
 
     /**
-     * shows list of all employee skill mappings
+     * To show list of all employee skill mappings
      * @param model
      * @return
      */
@@ -384,12 +369,10 @@ public class AdminController
                 employeeSkillMappingService.getAll());
         return "admin/employeeSkillMappings";
     }
-       
+    
     /**
      * To go to add job details form
-     * 
      * @param model
-     * @return
      */
     @RequestMapping(value = "/addJobDetails", method = RequestMethod.GET)
     public String addJobDetails(Model model)
@@ -401,7 +384,6 @@ public class AdminController
     /**
      * To add job details
      * @param job
-     * @return
      */
     @RequestMapping(value = "/addJobDetails", method = RequestMethod.POST)
     public String addJobDetails(@ModelAttribute("jobDetails") JobDetails jobDetails)
@@ -428,7 +410,7 @@ public class AdminController
     }
 
     /**
-     * To show all jobs
+     * To shows all jobs
      * @param model
      */
     @RequestMapping(value = "/showAllJobDetails", method = RequestMethod.GET)
@@ -462,7 +444,7 @@ public class AdminController
     }
 
     /**
-     * To log out from admin dashboard
+     * To logout from admin dashboard
      */
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout()
