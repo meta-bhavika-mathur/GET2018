@@ -10,7 +10,7 @@ public class WelcomeController
 {
 
     /**
-     * goto home page
+     * To direct to home page
      * @param model
      * @return
      */
@@ -19,5 +19,4 @@ public class WelcomeController
     {
         return "home";
     }
-
 }
