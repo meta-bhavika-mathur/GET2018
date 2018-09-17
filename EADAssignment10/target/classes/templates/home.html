@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Welcome</title>
+	</head>
+	<body>
+		<div align = "center">
+			<h1>Welcome!</h1>
+			<h2>Choose category:</h2>
+			<table>
+				<tr><td><a th:href = "@{admin/login}">Admin</a></td>
+				<td><a th:href = "@{employee/login}">Employee</a></td></tr> 
+			</table>
+		</div>
+	</body>
+</html> 
