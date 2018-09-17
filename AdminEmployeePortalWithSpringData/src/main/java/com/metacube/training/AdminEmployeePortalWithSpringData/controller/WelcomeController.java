@@ -12,7 +12,6 @@ public class WelcomeController
     /**
      * To direct to home page
      * @param model
-     * @return
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String welcome(ModelMap model)
