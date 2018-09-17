@@ -27,9 +27,7 @@ public class EmployeeController
     private JobDetailsService jobDetailsService;
 
     /**
-     * goto employee login window
-     * 
-     * @return
+     * To go to employee login window
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login()
@@ -38,32 +36,24 @@ public class EmployeeController
     }
 
     /**
-     * logs into employee dashboard
-     * 
+     * To log into employee dashboard
      * @param userName
      * @param password
-     * @return
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestParam(value = "email") String userName,
             @RequestParam(value = "password") String password)
     {
-        if (employeeService.getByEmail(userName) == null
-                || !employeeService.getByEmail(userName).getPassword()
-                        .equals(password))
-        {
+        if (employeeService.getByEmail(userName) == null || !employeeService.getByEmail(userName).getPassword() .equals(password))
             return "redirect:/";
-        }
+
         return "redirect:/employee/dashboard";
     }
 
     /**
-     * searches employee
-     * 
-     * @param id
-     *            employee id
+     * To searche employee
+     * @param id, idof the employee to be searched
      * @param model
-     * @return
      */
     @RequestMapping(value = "/searchEmployee", method = RequestMethod.POST)
     public String searchEmployee(@RequestParam(value = "id") int id, Model model)
@@ -73,12 +63,9 @@ public class EmployeeController
     }
 
     /**
-     * searches employee in project
-     * 
-     * @param id
-     *            employee id
+     * To search employee in project
+     * @param id, id of the employee to be searched
      * @param model
-     * @return
      */
     @RequestMapping(value = "/searchEmployeeInProject", method = RequestMethod.POST)
     public String searchEmployeeInProject(
