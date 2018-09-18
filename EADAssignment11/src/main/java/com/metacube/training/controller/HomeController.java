@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController
 {
      /**
-     * goto home page
+     * to go to home page
      * @param model
-     * @return
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String welcome(ModelMap model)
