@@ -7,68 +7,13 @@
 <body>
 	<div align = "center">
 	<h1>Welcome Admin!</h1>
-	<table>
-		<tr>
-			<td><a th:href="@{addProject}">Add Project</a></td>
-			</tr>
-		<tr>
-			<td><a th:href="@{addJob}">Add Job Information</a></td>
-		</tr>
-		<tr>
-			<td><a th:href="@{addSkill}">Add Skill</a></td></tr>
-			<tr><td><a th:href="@{addEmployee}">Add Employee</a></td></tr>
-		<tr><td><a th:href="@{searchEmployee}">Search Employees</a></td></tr>
-		<tr><td><a th:href="@{logout}">Logout</a></td></tr>
-	</table>
-	</div>
-</body>
-</html>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<!-- <h3>Projects</h3>
-	<a th:href="@{addProject}">Add Project</a>
-	<form name="updateProject" method="get" th:action="@{updateProject}">
-		Project Id: <input type="number" name="id" placeholder="Project Id" />
-		<input type="submit" value="update" />
-	</form>
-
-	<a th:href="@{showAllProjects}">Show All Projects</a>
-	<form name="deleteProject" method="post" th:action="@{deleteProject}">
-		Project Id: <input type="number" name="id" placeholder="Project Id" />
-		<input type="submit" value="delete" />
-	</form> 
-	<h3>Jobs</h3>
-	
-	
-	
-correct code
 	<a th:href="@{addJob}">Add Job Information</a>
+		
 	<form name="updateJob" method="get" th:action="@{updateJob}">
 		Job Id: <input type = "number" name = "id" placeholder = "Job Id" />
 		 <input type="submit" value="update" />
-	</form> 
-	
+	</form>
 	
 	<a th:href="@{addJob}">Add Job Information</a>
 	<a th:href="@{updateJob}">Update Job Information</a>
@@ -79,6 +24,7 @@ correct code
 		Job Id: <input type="number" name="id" placeholder="Job Id" /> <input
 			type="submit" value="delete" />
 	</form>
+		
 	<h3>Skills</h3>
 	<a th:href="@{addSkill}">Add Skill</a>
 	<form name="updateSkill" method="get" th:action="@{updateSkill}">
@@ -90,18 +36,21 @@ correct code
 		Skill Id: <input type="number" name="id" placeholder="Skill Id" /> <input
 			type="submit" value="delete" />
 	</form>
+		
 	<h3>Employee</h3>
 	<a th:href="@{addEmployee}">Add Employee</a>
+		
 	<form name="updateEmployee" method="get" th:action="@{updateEmployee}">
 		Employee Id: <input type="number" name="id" placeholder="Employee Id" />
 		<input type="submit" value="update" />
 	</form>
+		
 	<a th:href="@{showAllEmployees}">Show All Employees</a>
 	<form name="deleteEmployee" method="post" th:action="@{deleteEmployee}">
 		Employee Id: <input type="number" name="id" placeholder="Employee Id" />
 		<input type="submit" value="delete" />
 	</form>
-	<hr />
+	
 	<a th:href="@{logout}">Logout</a>
 </body>
-</html> --> 
+</html> 
