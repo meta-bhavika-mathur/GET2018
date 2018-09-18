@@ -12,46 +12,45 @@ public class ProjectService
 {
     @Autowired
    private ProjectDAO projectDAO;
+   
     /**
-    * returns project by id
+    * To return project by id
     */
-  
    public Project getById(int id)
    {
         return projectDAO.getById(id);
    }
+    
     /**
-    * returns list of all projects 
+    * To return list of all projects 
     */
-
    public List<Project> getAll()
    {
        return projectDAO.getAll();
    }
+    
     /**
-    * deletes project
+    * To deletes project by id
     */
-  
    public boolean delete(int id)
    {
        Project project = projectDAO.getById(id);
        return projectDAO.delete(project);
    }
+  
     /**
-    * updates project
+    * To update project information
     */
- 
    public boolean update(Project project)
    {
        return projectDAO.update(project);
    }
+    
     /**
-    * adds project
+    * To add new project
     */
- 
    public void create(Project project)
    {
-     //  return projectDAO.create(project);
        projectDAO.create(project);
    }
 }
