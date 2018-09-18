@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Search Employee</title>
+</head>
+<body>
+	<div align = "center">
+	<h3>Search Employee</h3>
+		<form name ="searchEmployee" method = "post" th:action = "@{searchEmployee}">
+		Employee Id: <input type = "number" name = "id" placeholder = "Employee Id" />
+					 <input type="submit" value="search" />	
+		</form>
+	
+		<form name ="searchEmployeeOnSkill" method = "post" th:action = "@{searchEmployee}">
+			Enter Employee Skill To Search: <input type = "text" name = "skill" placeholder = "Employee Skill" />
+			<input type="submit" value="search" />
+		</form>
+	
+		<form name ="searchEmployeeOnProject" method = "post" th:action = "@{searchEmployee}">
+			Enter Employee First Name: <input type = "text" name = "firstName" placeholder = "Employee first NAme" />
+			<input type="submit" value="Search" />
+		</form>
+ 		<a th:href="@{dashboard}">Goto dashboard</a>
+	</div>
+
+</body>
+</html> 
