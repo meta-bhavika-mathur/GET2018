@@ -26,48 +26,31 @@ public class ProjectDAO
    
    @Autowired
    private SessionFactory sessionFactory;
-  
-   private final String SQL_FIND_PROJECT = "from Project where project_id = :id";
+ 
    private final String SQL_DELETE_PROJECT = "delete from Project where project_id = :id";
    private final String SQL_UPDATE_PROJECT = "update Project set project_logo = :logo, description = :description, start_date  = :startDate, end_date  = :endDate where project_id = :id";
-   private final String SQL_GET_ALL = "from Project";
- //  private final String SQL_INSERT_PROJECT = "insert into projectmaster(project_logo, description, start_date, end_date) values (:logo,:description,:startDate,:endDate)";
    
    /**
-    * returns project by id
+    * To get project information by id
     */
    public Project getById(int id)
    {  
        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Project.class);
        criteria.add(Restrictions.eq("id", id));
        return (Project) criteria.uniqueResult();
-       
-       /*try
-       {
-           TypedQuery<Project> query = sessionFactory.getCurrentSession().createQuery(SQL_FIND_PROJECT);
-           query.setParameter("id", id);
-           return query.getSingleResult();
-       } 
-       catch (EmptyResultDataAccessException e)
-       {
-           return null;
-       }*/
    }
    
     /**
-    * returns list of all projects
+    * To return list of all projects
     */
    public List<Project> getAll()
    {
-    /*   TypedQuery<Project> query = sessionFactory.getCurrentSession().createQuery(SQL_GET_ALL);
-       return query.getResultList();
-       */
        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Project.class);
        return criteria.list();
    }
    
     /**
-    * deletes project
+    * To delete project information
     */
    public boolean delete(Project project)
    {
@@ -83,7 +66,7 @@ public class ProjectDAO
    }
    
     /**
-    * updates project
+    * To update project information
     */
    public boolean update(Project project)
    {
@@ -91,7 +74,7 @@ public class ProjectDAO
        {
            TypedQuery<Project> query = sessionFactory.getCurrentSession().createQuery(SQL_UPDATE_PROJECT);
            query.setParameter("logo", project.getLogo());
-         /*  query.setParameter("description", project.getDescription());*/
+           query.setParameter("description", project.getDescription());
            query.setParameter("startDate", project.getStartDate());
            query.setParameter("endDate", project.getEndDate());
 
@@ -103,7 +86,7 @@ public class ProjectDAO
    }
    
     /**
-    * adds project
+    *  To add new project
     */
    public void create(Project project)
    {
