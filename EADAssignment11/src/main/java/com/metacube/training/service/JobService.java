@@ -11,41 +11,45 @@ public class JobService
 {
    @Autowired
    private JobDAO jobDAO;
-    /**
-    * returns job by id
+   
+   /**
+    * To return job by id
     */
    public Job getById(int id)
    {
         return jobDAO.getById(id);
    }
+   
     /**
-    * returns list of all jobs
+    * To return list of all jobs
     */
    public List<Job> getAll()
    {
        return jobDAO.getAll();
    }
+   
     /**
-    * deletes job
+    * To delete job
     */
    public boolean delete(int id)
    {
        Job job = jobDAO.getById(id);
        return jobDAO.delete(job);
    }
+   
     /**
-    * updates job
+    * To update job information
     */
    public boolean update(Job job)
    {
        return jobDAO.update(job);
    }
+   
     /**
-    * adds job
+    * To add new job
     */
    public void create(Job job)
    {
        jobDAO.create(job);
-    //   return jobDAO.create(job);
    }
 }
