@@ -28,44 +28,31 @@ public class JobDAO
    @Autowired
    private SessionFactory sessionFactory;
    
-   private final String SQL_FIND_JOB = "from Job where job_code = :id";
    private final String SQL_DELETE_JOB = "delete from Job where job_code = :id";
    private final String SQL_UPDATE_JOB = "update Job set job_title = :title where job_code = :id";
-   private final String SQL_GET_ALL = "from Job";
- //  private final String SQL_INSERT_JOB = "insert into jobtitle(job_title) values(:title)";
    
    /**
-    * returns job by id
+    * to returns job information by id
     */
    public Job getById(int id)
    {
-       /*try
-       {
-           TypedQuery<Job> query = sessionFactory.getCurrentSession().createQuery(SQL_FIND_JOB);
-           query.setParameter("id", id);
-           return query.getSingleResult();
-       } 
-       catch (EmptyResultDataAccessException e)
-       {
-           return null;
-       }*/
        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Job.class);
        criteria.add(Restrictions.eq("id", id));
        Job job = (Job) criteria.uniqueResult();
        return job;
    }
+   
     /**
-    * returns list of all jobs
+    * To return list of all jobs
     */
    public List<Job> getAll()
    {
        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Job.class);
        return criteria.list();
-       /*TypedQuery<Job> query = sessionFactory.getCurrentSession().createQuery(SQL_GET_ALL);
-       return query.getResultList();*/
    }
+   
     /**
-    * deletes job
+    * To delete job information
     */
    public boolean delete(Job job)
    {
@@ -81,7 +68,7 @@ public class JobDAO
    }
    
     /**
-    * updates job
+    * To update job informaation 
     */
    public boolean update(Job job)
    {
@@ -99,7 +86,7 @@ public class JobDAO
    }
    
     /**
-    * adds job
+    * To add job information
     */
    public void create(Job job)
    {
