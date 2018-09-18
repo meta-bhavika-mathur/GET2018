@@ -26,84 +26,41 @@ public class EmployeeDAO
    
    @Autowired
    private SessionFactory sessionFactory;
-   
-   private final String SQL_FIND_EMPLOYEE = "from Employee where emp_code = :id";
-   private final String SQL_SEARCH_EMPLOYEE_BY_NAME = "from Employee where first_name = :firstName";
+  
    private final String SQL_DELETE_EMPLOYEE = "delete from Employee where emp_code = :id";
    private final String SQL_UPDATE_EMPLOYEE = "update Employee set first_name = :firstName, middle_name = :middleName, last_name  = :lastName, dob  = :dateOfBirth, gender = :gender, email_id = :email, password = :password where emp_code = :id";
-   private final String SQL_GET_ALL = "from Employee";
- //  private final String SQL_INSERT_EMPLOYEE = "insert into employee(first_name, middle_name, last_name, dob, gender, email_id, password) values(:firstName,:middleName,:lastName,:dateOfBirth,:gender,:email,:password)";
-   private final String SQL_GET_EMPLOYEE_BY_EMAIL = "from Employee where email_id = :email";
-   private final String SQL_SEARCH_EMPLOYEE_BY_SKILL = "from Employee where email_id = :email";
-    
-   /**
-    * gets employee by email
-    */
-   public Employee getByEmail(String email)
-   {
-       try
-       {
-           TypedQuery<Employee> query = sessionFactory.getCurrentSession().createQuery(SQL_GET_EMPLOYEE_BY_EMAIL);
-           query.setParameter("email", email);
-           return query.getSingleResult();
-       } 
-       catch (EmptyResultDataAccessException e)
-       {
-           return null;
-       }
-   }
    
     /**
-    * gets employee employee id
+    * To gets employee information by employee id
     */
    public Employee getById(int id)
    {
        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Employee.class);
        criteria.add(Restrictions.eq("id", id));
        return (Employee) criteria.uniqueResult();
-      /* try
-       {
-           TypedQuery<Employee> query = sessionFactory.getCurrentSession().createQuery(SQL_FIND_EMPLOYEE);
-           query.setParameter("id", id);
-           return query.getSingleResult();
-       } catch (EmptyResultDataAccessException e)
-       {
-           return null;
-       }*/
     }
    
    /**
-    * gets employee employee id
+    * To get employee informatiojn by employee first name
     */
    public Employee getByFirstName(String firstName)
    {
-       /*try
-       {
-           TypedQuery<Employee> query = sessionFactory.getCurrentSession().createQuery(SQL_SEARCH_EMPLOYEE_BY_NAME);
-           query.setParameter("firstName", firstName);
-           return query.getSingleResult();
-       } catch (EmptyResultDataAccessException e)
-       {
-           return null;
-       }*/
        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Employee.class);
        criteria.add(Restrictions.eq("firstName", firstName));
        return (Employee) criteria.uniqueResult();
     }
    
     /**
-    * returns list of all employees
+    * To returns list of all employees
     */
    public List<Employee> getAll()
    {
-       /*TypedQuery<Employee> query = sessionFactory.getCurrentSession().createQuery(SQL_GET_ALL);
-       return query.getResultList();*/
        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Employee.class);
        return criteria.list();
    }
    
     /**
-    * deletes employee
+    * To delete employee
     */
    public boolean delete(Employee employee)
    {
@@ -119,7 +76,7 @@ public class EmployeeDAO
    }
    
     /**
-    * deletes employee
+    * To update employee information
     */
    public boolean update(Employee employee)
    {
@@ -141,8 +98,9 @@ public class EmployeeDAO
            return false;
        }
    }
+   
     /**
-    * adds employee
+    * To add employee
     */
    public boolean create(Employee employee)
    {
@@ -156,20 +114,13 @@ public class EmployeeDAO
        }
    }
 
-    public Employee getBySkill(String skill)
-    {
-        /*try
-        {
-            TypedQuery<Employee> query = sessionFactory.getCurrentSession().createQuery(SQL_SEARCH_EMPLOYEE_BY_SKILL);
-            query.setParameter("skill", skill);
-            return query.getSingleResult();
-        }
-        catch (EmptyResultDataAccessException e)
-        {
-            return null;
-        }*/
-        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Employee.class);
-        criteria.add(Restrictions.eq("skill", skill));
-        return (Employee) criteria.uniqueResult();
-    }
+   /**
+   * To get employee information by skill
+   */
+   public Employee getBySkill(String skill)
+   {
+       Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Employee.class);
+       criteria.add(Restrictions.eq("skill", skill));
+       return (Employee) criteria.uniqueResult();
+   }
 }
