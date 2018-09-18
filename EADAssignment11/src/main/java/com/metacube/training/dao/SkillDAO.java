@@ -27,44 +27,32 @@ public class SkillDAO
    
    @Autowired
    private SessionFactory sessionFactory;
-    
-   private final String SQL_FIND_SKILL = "from Skill where skill_id = :id";
+   
    private final String SQL_DELETE_SKILL = "delete from Skill where skill_id = :id";
    private final String SQL_UPDATE_SKILL = "update Skill set skill_name = :name where skill_id = :id";
-   private final String SQL_GET_ALL = "from Skill";
    private final String SQL_INSERT_SKILL = "insert into Skill(skill_name) values (:name)";
    
    /**
-    * returns skill by id
+    * To get skill by id
     */
    public Skill getById(int id)
    {
-       /*try
-       {
-           TypedQuery<Skill> query = sessionFactory.getCurrentSession().createQuery(SQL_FIND_SKILL);
-           query.setParameter("id", id);
-           return query.getSingleResult();
-       } 
-       catch (EmptyResultDataAccessException e)
-       {
-           return null;
-       }*/
        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Skill.class);
        criteria.add(Restrictions.eq("id", id));
        return (Skill) criteria.uniqueResult();
    }
+   
     /**
-    * returns list of all skills
+    * To get list of all skills
     */
    public List<Skill> getAll()
-   {/*
-       TypedQuery<Skill> query = sessionFactory.getCurrentSession().createQuery(SQL_GET_ALL);
-       return query.getResultList();*/
+   {
        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Skill.class);
        return criteria.list();
    }
+   
     /**
-    * deletes skill
+    * To delete skill
     */
    public boolean delete(Skill skill)
    {
@@ -78,8 +66,9 @@ public class SkillDAO
            return false;
        }
    }
+  
     /**
-    * updates skill
+    * To update skill information
     */
    public boolean update(Skill skill)
    {
@@ -96,8 +85,9 @@ public class SkillDAO
            return false;
        }
    }
+   
     /**
-    * adds skill
+    * To add skill
     */
    public void create(Skill skill)
    {
