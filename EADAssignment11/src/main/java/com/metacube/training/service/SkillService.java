@@ -11,46 +11,45 @@ public class SkillService
 {
    @Autowired
    private SkillDAO skillDAO;
-    /**
-    * returns skill by id
+  
+   /**
+    * To return skill by id
     */
-
    public Skill getById(int id)
    {
         return skillDAO.getById(id);
    }
+   
     /**
-    * returns list of all skills
+    * To return list of all skills
     */
-
    public List<Skill> getAll()
    {
        return skillDAO.getAll();
    }
-    /**
-    * deletes skill
-    */
    
+    /**
+    * To delete skill
+    */
    public boolean delete(int id)
    {
        Skill skill = skillDAO.getById(id);
        return skillDAO.delete(skill);
    }
+   
     /**
-    * updates skill
+    * To update skill
     */
-  
    public boolean update(Skill skill)
    {
        return skillDAO.update(skill);
    }
+   
     /**
-    * adds skill
+    * To add new skill
     */
-
    public void create(Skill skill)
    {
-       //return skillDAO.create(skill);
        skillDAO.create(skill);
    }
 }
