@@ -1,0 +1,91 @@
+#parentBlock
+{
+    height: 150px;
+    width: 150px;
+    display: flex;
+	position: relative;
+    left: 600px;
+	top: 210px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#firstChildBlock
+{
+    animation: firstChild 1.8s infinite;
+	animation-delay: -0.1s;
+    height: 50%;
+    width: 50%;
+    background-color: #3399ff; /*blue*/
+}
+@keyframes firstChild { 
+	25% {    
+		transform: translate(0px, 75px);
+	} 
+    50% { 
+		transform: translate(75px, 75px);
+	} 
+    75%{
+         transform: translate(75px, 0px);
+    }
+}
+
+#secondChildBlock
+{
+    animation: secondChild 1.8s infinite;
+	animation-delay: -0.1s;
+    height: 50%;
+    width: 50%;
+    background-color: #ffbb33; /* yellow */
+}
+@keyframes secondChild {
+	25% {      
+		transform: translate(-75px, 0px);
+	} 
+   50% { 
+		transform: translate(-75px, 75px);
+	}
+    75%{
+         transform: translate(0px, 75px);
+    }
+}
+
+#thirdChildBlock
+{
+    animation: thirdChild 1.8s infinite;
+	animation-delay: -0.1s;
+    height: 50%;
+    width: 50%;
+    background-color: #9933ff; /*purpel*/
+}
+@keyframes thirdChild {    
+	25% {       
+		transform: translate(75px, 0px);
+	} 
+   50% { 
+		transform: translate(75px, -75px);
+	} 
+    75%{
+         transform: translate(0px, -75px);
+    }
+}
+
+#fourthChildBlock
+{ 
+    animation: fourthChild 1.8s infinite;
+	animation-delay: -0.1s;
+    height: 50%;
+    width: 50%;
+    background-color:  #ff8080;  /*pink*/
+}
+@keyframes fourthChild { 
+	25% {    
+		transform: translate(0px, -75px);
+	} 
+    50% { 
+		transform: translate(-75px, -75px);
+	} 
+    75%{
+         transform: translate(-75px, 0px);
+    }
+}
