@@ -1,0 +1,13 @@
+<canvas id="myCanvas" width="400" height="210"></canvas>
+<script> 
+    // create the context
+	var c = document.getElementById("myCanvas");
+	var ctx = c.getContext("2d");
+	ctx.beginPath();
+	ctx.moveTo(150,0);
+	ctx.lineTo(75,200);
+	ctx.lineTo(225,200);
+	ctx.closePath();
+	ctx.fillStyle = "#840b60";
+    ctx.fill();
+</script>
