@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+  	   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   	   xsi:schemaLocation = "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <!-- Definition for javaCollection -->
+   <bean id = "javaCollection" class = "com.training.metacube.CollectionClass">
+      
+      <!-- Results in a setListOfColors(java.util.List) call -->
+      <property name = "listOfColors">
+         <list>
+            <value>BLUE</value>
+            <value>ORANGE</value>
+            <value>YELLOW</value>
+            <value>PINK</value>
+            <value>BLACK</value>
+            <value>BLACK</value>
+         </list>
+      </property>
+
+      <!-- results in a setSetOfColors(java.util.Set) call -->
+      <property name = "setOfColors">
+         <set>
+            <value>BLUE</value>
+            <value>ORANGE</value>
+            <value>YELLOW</value>
+            <value>PINK</value>
+            <value>BLACK</value>
+         </set>
+      </property>
+
+      <!-- results in a setMapOfColors(java.util.Map) call -->
+      <property name = "mapOfColors">
+         <map>
+            <entry key = "B" value = "BLUE"/>
+            <entry key = "O" value = "ORANGE"/>
+            <entry key = "Y" value = "YELLOW"/>
+            <entry key = "P" value = "PINK"/>
+         </map>
+      </property>
+   </bean>
+</beans>
