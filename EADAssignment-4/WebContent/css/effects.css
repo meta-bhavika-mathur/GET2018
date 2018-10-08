@@ -1,34 +1,80 @@
-@CHARSET "ISO-8859-1";
-body {
+body 
+{
     background-color: white;
 }
-
-.pageTop
+.logo
 {
-	
+	float: left; 
+	width: 35%;
+}
+.topContainer
+{
 	background-color: #A9A9A9;
-	margin: 0px;
-    border: 1.5px solid red;
+	height: 100px;
+}
+
+.topContainer > .menu 
+{
+	width: 49%;
+	float: right; 
 	
 }
 
-a{
-	font-family : Arial;
-	text-decoration: none;	
-	font-weight : bold;
+.topContainer > .menu a
+{
+	font-family: Arial;
+	padding: 12px;
+	text-decoration: none;
+	font-weight: bold;
 	color: white;
 	border-radius: 20px;
-    background: orange;
-    padding: 20px;
-    width: 150px;
-    height: 100px;
+	background: orange;
+	margin-right: 20px;
+	float: right;
 	box-shadow: 5px 5px grey;
+	margin-top: 25px;
 }
+
+.topContainer > .menu input
+{
+	font-family: Arial;
+	padding: 12px;
+	text-decoration: none;
+	font-weight: bold;
+	color: black;
+	border-radius: 10px;
+	background: white;
+	margin-right: 8px;
+	float: right;
+	box-shadow: 5px 5px grey;
+	margin-top: 25px;
+}
+
+.topContainer > .menu label
+{
+	
+	float: right;
+	margin-right: 10px;
+}
+
+.topContainer > .logo
+{	
+	margin:10px;
+}
+
+.topContainer > .menu #profileImage
+{
+	height: 100px;
+	width: 100px;
+	
+}
+
 
 .pageMainContent
 {
 	margin: 0px;
 	font-family : Arial;
+	text-align:center;
 }
 
 .pageFooter
@@ -48,3 +94,4 @@ a{
 	border-radius: 15px;
 	background-color: #A9A9A9;
 }
+

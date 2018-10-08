@@ -24,18 +24,34 @@ public class User
     }
     
     // Constructor of User without user id
-    public User(String firstName, String lastName, String emailId, String passwword, String organisation, int age,  Date dateOfBirth, String image, String phoneNumber)
+    public User(String firstName, String lastName, String emailId, String password, String organisation, int age,  Date dateOfBirth, String image, String phoneNumber)
     {
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailId = emailId;
-        this.password = passwword;
+        this.password = password;
         this.organization = organisation;
         this.age = age;
         this.dateOfBirth = dateOfBirth;
         this.image = image;
         this.phoneNumber = phoneNumber;
     }
+    
+    // Constructor of User without user id
+    public User(String firstName, String lastName, String emailId, String organisation, int age,  Date dateOfBirth, String phoneNumber)
+    {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.emailId = emailId;
+   
+        this.organization = organisation;
+        this.age = age;
+        this.dateOfBirth = dateOfBirth;
+      
+        this.phoneNumber = phoneNumber;
+    }
+    
+    
     
     public int getAge()
     {

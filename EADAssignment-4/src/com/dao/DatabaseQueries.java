@@ -84,4 +84,37 @@ public class DatabaseQueries
         return result;
                            
     }
+    
+    public User getUserInfo(String email)
+    {
+        final String query =  "SELECT * FROM UserDetails WHERE email = 'bhavika.mathur@metacube.com'";
+        User user = null;
+        
+        try
+        (
+            Connection connection = jdbcConnect.getMysqlConnection("root", "1234", "EmployeeDetail");
+            PreparedStatement statement = connection.prepareStatement(query);
+        ) 
+        {
+           // statement.setString(1, email);
+            ResultSet resultSet = statement.executeQuery();
+        
+            String firstName = resultSet.getString("firstName");
+            String lastName = resultSet.getString("lastName");
+            String emailId = resultSet.getString("emailId");
+            String organsation = resultSet.getString("userOrganisation");
+            int age = resultSet.getInt("age");
+            Date dob = resultSet.getDate("userDOB");
+            String mobile = resultSet.getString("userMobileNumber");
+              
+            user = new User(firstName, lastName, emailId, organsation, age, dob, mobile);
+           
+        }
+        catch (SQLException ex)
+        {
+             ex.printStackTrace();
+        } 
+        return user;
+    }
+
 }  
