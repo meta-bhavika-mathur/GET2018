@@ -41,7 +41,7 @@ DoublyLinkedList.prototype.remove = function(position)
 	afterNodeToDelete = null,
     nodeToDelete = null;
  
-    if (this.size === 0 || position < 0 || position > this.lengthOfLinkedList)
+    if (this.size === 0 || position < 1 || position > this.lengthOfLinkedList)
     {
         throw new Error(message);
     }
