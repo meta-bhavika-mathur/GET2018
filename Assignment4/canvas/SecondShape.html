@@ -1,0 +1,26 @@
+<canvas id="myCanvas" width="200" height="200"></canvas>
+<script> 
+	// create the context
+	var canvas = document.getElementById("myCanvas");
+	var firstContext = canvas.getContext("2d");
+	var centerX = 50;
+	var centerY = 50;
+	var radius = 40;
+	
+	// context for circle
+	firstContext.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+    firstContext.fillStyle = '#ffffff';
+    firstContext.fill();
+	firstContext.lineWidth = 6;
+    firstContext.strokeStyle = '#bbbfc1';
+    firstContext.stroke();
+	
+	// context for semicircle
+    var secondContext = canvas.getContext('2d');
+
+    secondContext.beginPath();
+    secondContext.arc(50, 50, 43, 0.5 * Math.PI, 1.5 * Math.PI, false);
+    secondContext.closePath();
+    secondContext.fillStyle = '#42bcf4';
+    secondContext.fill();
+</script>

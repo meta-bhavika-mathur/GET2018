@@ -1,0 +1,14 @@
+<canvas id="myCanvas" width="200" height="200"></canvas>
+<script> 
+    // create the context
+	var canvas = document.getElementById("myCanvas");
+	var firstContext = canvas.getContext("2d");
+	var centerX = 50;
+	var centerY = 50;
+	var radius = 40;
+
+	firstContext.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+	firstContext.lineWidth = 12;
+    firstContext.strokeStyle = '#840b60';
+    firstContext.stroke();
+</script>

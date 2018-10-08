@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Contact Us</title>
+		<link rel = "stylesheet" href = "FormEffects.css">
+		<link rel="stylesheet" href = "https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+		 integrity = "sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin = "anonymous">
+	</head>
+	<body>
+		<div class = "container">
+			<!-- Form Name -->
+			<div class = "form_name">Contact Us Today!</div>
+			<!-- Form Contents -->
+			<div class = "form_container">
+				<form class = "contact_us_form" action = "#" method = "post"  id = "contact_us_form">	     	
+					<div class = "form_entries">
+						<!-- Text input-->
+						<div id = "top_form_field" class = "form_field">
+							<label class = "field_label">First Name</label>  
+							<div class = "input_field_container">
+								<div class = "input_field_icon"><i class="fas fa-user"></i></div>
+								<input name = "first_name" placeholder = " First Name" class = "input_text_box" type = "text" pattern = "[A-Za-z]+" required>
+							</div>
+						</div>
+						<!-- Text input-->
+						<div class = "form_field">
+							<label class = "field_label" >Last Name</label> 
+							<div class = "input_field_container">
+								<div class = "input_field_icon"><i class="fas fa-user"></i></div>
+								<input name = "last_name" placeholder = " Last Name" class = "input_text_box" type = "text" pattern = "[A-Za-z]+">
+							</div>
+						</div>
+						<!-- Text input-->
+						<div class = "form_field">
+							<label class = "field_label">E-Mail</label>  
+							<div class = "input_field_container">
+								<div class = "input_field_icon"><i class="fas fa-envelope"></i></div>
+								<input name = "email" placeholder = " E-Mail Address" class = "input_text_box"  type = "email" required>
+							</div>
+						</div>
+						<!-- Text input-->
+						<div class = "form_field">
+							<label class = "field_label">Phone #</label>  
+							<div class = "input_field_container">
+								<div class = "input_field_icon"><i class="fas fa-phone"></i></div>
+								<input name = "phone" placeholder = " (845)555-1212" class = "input_text_box" type = "text" pattern = "[7-9]{1}[0-9]{9}" required>
+							<!--	<input name = "phone" placeholder = " (845)555-1212" class = "input_text_box" type = "number" min = "7000000000" and max = "9999999999" required > 
+							 pattern = "[(][0-9]{3}[)][0-9]{3}[-][0-9]{4}"-->
+							</div>
+						</div>
+						<!-- Text input-->     
+						<div class = "form_field">
+							<label class = "field_label">Address</label>  
+							<div class = "input_field_container">
+								<div class = "input_field_icon"><i class="fas fa-home"></i></div>
+								<input name = "address" placeholder = " Address" class = "input_text_box" type = "text" pattern = "[A-Za-z]+" required>
+							</div>
+						</div>
+						<!-- Text input-->
+						<div class = "form_field">
+							<label class = "field_label">City</label>  
+							<div class = "input_field_container">
+								<div class = "input_field_icon"><i class="fas fa-home"></i></div>
+								<input name = "city" placeholder = " City" class = "input_text_box" type = "text" pattern = "[A-Za-z]+" required>
+							</div>
+						</div>
+						<!-- Select Basic -->
+						<div class = "form_field"> 
+							<label class = "field_label">State</label>
+							<div class = "input_field_container">
+								<div class = "input_field_icon"><i class="fas fa-list-ul"></i></div>
+								<select name = "state" class = "input_select">
+									<option value = " ">Please select your state..</option>
+									<option>Andhra Pradesh</option>
+									<option>Rajasthan</option>
+									<option >Maharashtra</option>
+									<option >Karnataka</option>
+									<option >Gujarat</option>
+								</select>
+							</div>
+						</div>
+						<!-- Text input-->
+						<div class = "form_field">
+							<label class = "field_label">Zip Code</label>  
+							<div class = "input_field_container">
+								<div class = "input_field_icon"><i class="fas fa-home"></i></div>
+								<input name = "zip" placeholder = " Zip Code" class = "input_text_box" type = "number" required>
+							</div>
+						</div>
+						<!-- Text input-->
+						<div class = "form_field">
+							<label class = "field_label">Website or domain name</label>  
+							<div class="input_field_container">
+								<div class="input_field_icon"><i class="fas fa-globe-asia"></i></div>
+								<input name ="website" placeholder = " Website or domain name" class ="input_text_box" type = "url" 
+                                       pattern = "https?://.+" required>
+							</div>
+						</div>
+						<!-- radio checks -->
+						<div class = "form_field">
+							<label class = "field_label">Do you have hosting?</label>
+							<div id = "radio_button_container" class = "input_field_container">
+								<div class = "radio"><label><input type = "radio" name = "hosting" value = "yes" /> Yes </label></div>
+								<div class = "radio"><label><input type = "radio" name = "hosting" value = "no" /> No </label></div>
+							</div>
+						</div>
+						<!-- Text area -->
+						<div class = "form_field">
+							<label class = "field_label">Project Description</label>
+							<div class = "input_field_container">
+								<div class = "input_field_icon"><i class="fas fa-pen"></i></div>
+								<textarea id = "input_text_area" name = "comment" placeholder = " Project Description" required></textarea>
+							</div>
+						</div>
+
+
+						<!-- Button -->
+						<div class="form_field">
+							<label class="field_label"></label>
+							<div class = "input_field_container">
+								<button type="submit" id = "send_button">Send <i class="fas fa-paper-plane"></i> </button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- End of container -->
+	</body>
+</html>
