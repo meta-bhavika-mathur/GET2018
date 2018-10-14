@@ -1,0 +1,38 @@
+input:invalid {
+    border: 1px solid red;
+}
+header {
+    background-color: #9eeff7;
+    border: 3px solid blue;
+}
+.card img {
+    height: 70px;
+}
+ul {
+    width: 100%;
+}
+#search-input {
+    border-radius: 10px;
+    padding: 5px;
+}
+#edit-information
+{
+	background-color: #9eeff7;
+	border: 1px solid black;	
+	border-radius: 20px;
+	text-align: center;
+	width: 25px;
+	height: 25px;
+}
+#search-button, #add-user-button
+{
+	border: 1px solid black;
+	background-color: grainsbro;
+}
+ .modal-body input{
+    width: 400px;
+}
+#input-address {
+    height: 50px;
+    overflow: auto;
+} 
