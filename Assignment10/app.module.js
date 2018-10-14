@@ -1,7 +1,4 @@
 'use strict';
 
-// Define the `userApp` module
-angular.module('userManagementApp', [
-  // ...which depends on the `userList` module
-  'userList'
-]);
+// `userApp` module which depends on the `userList` module
+angular.module('userManagementApp', ['userList']);
