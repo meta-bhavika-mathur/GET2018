@@ -3,14 +3,14 @@ function Node(data)
 {
     this.data = data;
     this.next = null;
-	this.previous = null;
+    this.previous = null;
 }
 // Structure of a doubly linked list
 function DoublyLinkedList()
 {
     this.lengthOfLinkedList = 0;
     this.head = null;
-	this.tail = null;
+    this.tail = null;
 }
 // To add nodes to a linked list
 DoublyLinkedList.prototype.add = function(value) 
@@ -20,14 +20,14 @@ DoublyLinkedList.prototype.add = function(value)
     if (this.head) 
     {
         this.tail.next = node;
-		node.previous = this.tail;
-		this.tail = node;
+	node.previous = this.tail;
+	this.tail = node;
     } 
     else 
     {
-		this.head = node;
-		this.tail = node;
-	}
+	this.head = node;
+	this.tail = node;
+    }
     this.lengthOfLinkedList++; 
     return node;
 };
@@ -36,9 +36,9 @@ DoublyLinkedList.prototype.remove = function(position)
 {
     var currentNode = this.head,
     count = 1,
-    message = 'Invalid node position',
+    message = 'Invalid node position!',
     beforeNodeToDelete = null,
-	afterNodeToDelete = null,
+    afterNodeToDelete = null,
     nodeToDelete = null;
  
     if (this.size === 0 || position < 1 || position > this.lengthOfLinkedList)
@@ -50,7 +50,6 @@ DoublyLinkedList.prototype.remove = function(position)
         if (position === 1) 
         {
             this.head = currentNode.next;
-
             if(!this.head) 
             {
                 this.tail = null;
@@ -86,7 +85,7 @@ DoublyLinkedList.prototype.remove = function(position)
 // To print elements of linked list
 DoublyLinkedList.prototype.printList = function() 
 {
-	var currentNode = this.head; 
+    var currentNode = this.head; 
     var str = ""; 
     while (currentNode)
     { 
