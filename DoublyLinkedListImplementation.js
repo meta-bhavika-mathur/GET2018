@@ -67,11 +67,11 @@ DoublyLinkedList.prototype.remove = function(position)
 	        }
             else 
             {
-		         while (count < position) 
+		 while (count < position) 
                  {
                      currentNode = currentNode.next;
                      count++;
-		         }
+		 }
                  beforeNodeToDelete = currentNode.previous;
                  afterNodeToDelete = currentNode.next;
                  beforeNodeToDelete.next = afterNodeToDelete;
