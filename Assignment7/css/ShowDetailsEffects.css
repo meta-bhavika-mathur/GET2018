@@ -1,0 +1,40 @@
+.container
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.heading
+{
+	display: flex;
+	flex-direction: row;
+}
+#heading_field_name
+{
+	flex-basis: 50%;
+	margin-right: 10px;
+}
+#heading_value
+{
+	flex-basis: 50%;
+	margin-right: 10px;
+}
+.detail
+{
+	display: flex;
+	flex-direction: row;
+}
+.label
+{
+	flex-basis: 50%;
+	padding: 5px;
+	font-size: 18px;
+	text-align: right;
+	margin-right: 20px;
+}
+.value
+{
+	flex-basis: 50%;
+	padding: 5px;
+	font-size: 18px;
+}
